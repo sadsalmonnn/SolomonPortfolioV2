@@ -19,6 +19,7 @@
 }
 
 h1 {
+    /* Main Title */
     font-family: "komet-sc", sans-serif;
     font-weight: 900;
     font-style: normal;
@@ -26,15 +27,16 @@ h1 {
 }
 
 h2 {
+    /* Black Title */
     font-family: komet, sans-serif;
     font-weight: 900;
     font-style: normal;
 }
 
-h3 {
-    font-family: komet, sans-serif;
-    font-weight: 900;
-    font-style: normal;
+.ptalics {
+    font-family: basic-sans, sans-serif;
+    font-weight: 300;
+    font-style: italic;
 }
 
 p {
@@ -43,3 +45,8 @@ p {
     font-style: normal;
 }
 
+#homename {
+    font-family: basic-sans, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}

@@ -1,0 +1,14 @@
+hr {
+    background-color: #979797;
+}
+
+li hr:last-of-type {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+li hr:first-of-type {
+
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}
