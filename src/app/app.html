@@ -1,8 +1,34 @@
+<div
+  #paintBlob
+  class="fixed top-0 left-0 w-40 h-40 bg-[#00FFFF] rounded-full opacity-30 blur-[90px] -z-10 pointer-events-none"
+></div>
+
 <app-navbar></app-navbar>
-<app-homepage></app-homepage>
-<app-aboutmepage></app-aboutmepage>
 
-<app-experiencepage></app-experiencepage>
+<!-- <div class="ml-6 mr-6 sm:ml-12 sm:mr-12 md:ml-28 md:mr-28 lg:ml-36 lg:mr-36 relative z-0 flex flex-col justify-center items-center" (mousemove)="onMouseMove($event)">
+    
+    <app-homepage id="homepage" class="scroll-mt-20"></app-homepage>
+    <app-aboutmepage id="aboutmepage" class="scroll-mt-10 xl:scroll-mt-0"></app-aboutmepage>
 
-<app-projectspage></app-projectspage>
-<app-contactmepage></app-contactmepage>
+    <app-experiencepage id="experiencepage" class="scroll-mt-10 xl:scroll-mt-14"></app-experiencepage>
+
+    <app-projectspage id="projectspage" class="scroll-mt-10 xl:scroll-mt-10" ></app-projectspage>
+    <app-contactmepage id="contactmepage" class="scroll-mt-10"></app-contactmepage>
+</div> -->
+
+
+<div class="flex flex-col justify-center items-center relative z-0" (mousemove)="onMouseMove($event)">
+    <div class="max-w-[300px] sm:max-w-[530px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]">
+        <app-homepage id="homepage" class="scroll-mt-20"></app-homepage>
+        <app-aboutmepage id="aboutmepage" class="scroll-mt-10"></app-aboutmepage>
+
+        <app-experiencepage id="experiencepage" class="scroll-mt-10"></app-experiencepage>
+
+        <app-projectspage id="projectspage" class="scroll-mt-10" ></app-projectspage>
+        <app-contactmepage id="contactmepage" class="scroll-mt-10"></app-contactmepage>
+    </div>
+</div>
+
+<!-- <div class="flex flex-col justify-center items-center">
+    <div>hello</div>
+</div> -->

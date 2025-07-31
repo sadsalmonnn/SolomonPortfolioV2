@@ -35,11 +35,23 @@ export class Aboutmepage{
   row_length: number = Math.ceil(this.icons.length / 3);
 
   get iconColumns(): string[][] {
-    const columns: string[][] = [[], [], []];
+    const width = window.innerWidth;
+    let numCols = 2;
+
+    if (width >= 1280) {
+      numCols = 4;
+    } else if (width >= 1024) {
+      numCols = 4;
+    } else if (width >= 768) {
+      numCols = 3;
+    }
+
+    const columns: string[][] = Array.from({ length: numCols }, () => []);
     for (let i = 0; i < this.icons.length; i++) {
-      const colIndex = Math.floor(i / this.row_length);
+      const colIndex = i % numCols;
       columns[colIndex].push(this.icons[i]);
     }
+
     return columns;
   }
 }

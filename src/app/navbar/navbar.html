@@ -1,7 +1,40 @@
-<ul class="w-full flex flex-row gap-3.5 text-sm justify-center items-center fixed top-3.5 z-50">
-  <li>home</li>
-  <li>about</li>
-  <li>experience</li>
-  <li>projects</li>
-  <li>contact</li>
+<ul
+  class="w-full flex flex-row gap-3.5 justify-center items-center
+         fixed top-3.5 z-50
+         bg-white/50 backdrop-blur-md rounded-md px-4 py-2 shadow-sm">
+  
+  <li>
+    <button (click)="goToPart('homepage')"
+      class="transition duration-100 hover:text-[#00FFFF] hover:scale-105 hover:cursor-pointer">
+      <p>home</p>
+    </button>
+  </li>
+
+  <li>
+    <button (click)="goToPart('aboutmepage')"
+      class="transition duration-100 hover:text-[#00FFFF] hover:scale-105 hover:cursor-pointer">
+      <p>about</p>
+    </button>
+  </li>
+
+  <li>
+    <button (click)="goToPart('experiencepage')"
+      class="transition duration-100 hover:text-[#00FFFF] hover:scale-105 hover:cursor-pointer">
+      <p>experience</p>
+    </button>
+  </li>
+
+  <li>
+    <button (click)="goToPart('projectspage')"
+      class="transition duration-100 hover:text-[#00FFFF] hover:scale-105 hover:cursor-pointer">
+      <p>projects</p>
+    </button>
+  </li>
+
+  <li>
+    <button (click)="goToPart('contactmepage')"
+      class="transition duration-100 hover:text-[#00FFFF] hover:scale-105 hover:cursor-pointer">
+      <p>contact</p>
+    </button>
+  </li>
 </ul>
