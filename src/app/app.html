@@ -17,11 +17,17 @@
 </div> -->
 
 
-<div class="flex flex-col justify-center items-center relative z-0" (mousemove)="onMouseMove($event)">
-    <div class="max-w-[300px] sm:max-w-[530px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]">
+<div class="flex flex-col justify-center items-center relative z-0 " (mousemove)="onMouseMove($event)">
+    <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
         <app-homepage id="homepage" class="scroll-mt-20"></app-homepage>
-        <app-aboutmepage id="aboutmepage" class="scroll-mt-10"></app-aboutmepage>
+    </div>
+        
+    <div class="w-full min-h-dvh bg-[#979797]">
+        <app-aboutmepage id="aboutmepage" class="scroll-mt-10 w-full h-full"></app-aboutmepage>
+    </div>
 
+
+    <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 ">    
         <app-experiencepage id="experiencepage" class="scroll-mt-10"></app-experiencepage>
 
         <app-projectspage id="projectspage" class="scroll-mt-10" ></app-projectspage>
