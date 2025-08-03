@@ -1,6 +1,5 @@
-<div class="h-full min-h-dvh">
-
-    <!-- <div class="flex justify-center items-left mb-6">
+<div class="h-full min-h-dvh mt-12">
+  <!-- <div class="flex justify-center items-left mb-6">
         <div class="relative inline-block text-left">
             <h2>EXPERIENCE</h2>
             <div class="flex mt-1 justify-start">
@@ -18,90 +17,103 @@
         </div>
     </div> -->
 
-
-        <div class="relative inline-block text-left">
-            <h2>EXPERIENCE</h2>
-            <div class="flex mt-1 justify-start">
-                <div class="w-[33px] h-[10px]
-        sm:w-[38px] sm:h-[15px]
-        md:w-[45px] md:h-[20px]
-        lg:w-[55px] lg:h-[25px]
-                 bg-[#00FFFF]"></div>
-                <div class="w-[57px] h-[10px]
-        sm:w-[70px] sm:h-[15px]
-        md:w-[90px] md:h-[20px]
-        lg:w-[110px] lg:h-[25px]
-                 bg-[#979797]"></div>
-            </div>
+  <div class="relative inline-block text-left">
+    <h2>EXPERIENCE</h2>
+    <div class="flex mt-1 justify-start">
+      <div
+        class="w-[33px] h-[10px] sm:w-[38px] sm:h-[15px] md:w-[45px] md:h-[20px] lg:w-[55px] lg:h-[25px] bg-[#00FFFF]"
+      ></div>
+      <div
+        class="w-[57px] h-[10px] sm:w-[70px] sm:h-[15px] md:w-[90px] md:h-[20px] lg:w-[110px] lg:h-[25px] bg-[#979797]"
+      ></div>
+    </div>
+  </div>
+  <ul
+    class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical"
+  >
+    @for (experience of experiences; track experience; let i = $index){
+    <li>
+      @if (i > 0){
+      <hr class="" />
+      } @else {
+      <hr class="hidden" />
+      }
+      <div class="timeline-middle">
+        <div class="relative">
+          <svg
+            class="absolute right-[-2px] top-[-3px] z-0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <g filter="url(#a)">
+              <circle cx="12" cy="12" r="8" fill="#0FF" />
+            </g>
+            <defs>
+              <filter
+                id="a"
+                width="24"
+                height="24"
+                x="0"
+                y="0"
+                color-interpolation-filters="sRGB"
+                filterUnits="userSpaceOnUse"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feBlend
+                  in="SourceGraphic"
+                  in2="BackgroundImageFix"
+                  result="shape"
+                />
+                <feGaussianBlur
+                  result="effect1_foregroundBlur_5_767"
+                  stdDeviation="2"
+                />
+              </filter>
+            </defs>
+          </svg>
+          <svg
+            class="relative z-10 mb-0.5 mt-0.5"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="none"
+          >
+            <circle cx="8" cy="8" r="7.5" stroke="#979797" />
+          </svg>
         </div>
-    <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        @for (experience of experiences; track experience; let i = $index){
-            <li>
-                @if (i > 0){
-                    <hr class=""/>
-                } @else {
-                    <hr class="hidden"/>
-                }
-                <div class="timeline-middle">
-
-                    <div class="relative">
-                    <svg
-                        class="absolute right-[-2px] top-[-3px] z-0"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                    >
-                        <g filter="url(#a)">
-                        <circle cx="12" cy="12" r="8" fill="#0FF" />
-                        </g>
-                        <defs>
-                        <filter
-                            id="a"
-                            width="24"
-                            height="24"
-                            x="0"
-                            y="0"
-                            color-interpolation-filters="sRGB"
-                            filterUnits="userSpaceOnUse"
-                        >
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                            <feGaussianBlur result="effect1_foregroundBlur_5_767" stdDeviation="2" />
-                        </filter>
-                        </defs>
-                    </svg>
-                    <svg
-                        class="relative z-10 mb-0.5 mt-0.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="none"
-                    >
-                        <circle cx="8" cy="8" r="7.5" stroke="#979797" />
-                    </svg>
-                    </div>
-
-                </div>
-                    <div [ngClass]="{
-                        'timeline-start': i % 2 === 0,
-                        'timeline-end': i % 2 !== 0,
-                        'md:text-end': i % 2 === 0,
-                        'md:text-start': i % 2 !== 0
-                    }" class="mb-10 ml-5 mr-5 md:text-end">
-                    <time class="ptalics">{{experience.startdate}} - {{experience.enddate}}</time>
-                    <div class="boldtext mt-1">{{experience.title}}</div>
-                    <p class="text-[#979797]">{{experience.company}} · {{experience.location}}</p>
-                    <p class="">{{experience.description}}</p>
-                    
-                </div>
-                    @if (i === (experiences.length-1)){
-                        <hr style="  border-bottom-left-radius: 9999px; border-bottom-right-radius: 9999px;"/>
-                    } @else {
-                        <hr />
-                    }
-            </li>
-        }
-    </ul>
+      </div>
+      <div
+        [ngClass]="{
+          'timeline-start': i % 2 === 0,
+          'timeline-end': i % 2 !== 0,
+          'md:text-end': i % 2 === 0,
+          'md:text-start': i % 2 !== 0
+        }"
+        class="mb-10 ml-5 mr-5 md:text-end"
+      >
+        <time class="ptalics"
+          >{{ experience.startdate }} - {{ experience.enddate }}</time
+        >
+        <div class="boldtext mt-1">{{ experience.title }}</div>
+        <p class="text-[#979797]">
+          {{ experience.company }} · {{ experience.location }}
+        </p>
+        <p class="">{{ experience.description }}</p>
+      </div>
+      @if (i === (experiences.length-1)){
+      <hr
+        style="
+          border-bottom-left-radius: 9999px;
+          border-bottom-right-radius: 9999px;
+        "
+      />
+      } @else {
+      <hr />
+      }
+    </li>
+    }
+  </ul>
 </div>
