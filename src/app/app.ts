@@ -24,7 +24,7 @@ export class App implements AfterViewInit {
     initialHomePageAnimation();
   }
 
-  protected readonly title = signal('portfolio');
+  protected readonly title = signal("Solomon's Portfolio");
 
   @ViewChild('paintBlob') paintBlob!: ElementRef;
 
