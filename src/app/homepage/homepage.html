@@ -1,38 +1,42 @@
-<div class="h-screen flex flex-col justify-center items-center text-center relative min-h-dvh lg:flex-row lg:gap-4 xl:gap-14">
+<div
+  class="h-screen flex flex-col justify-center items-center text-center relative min-h-dvh lg:flex-row lg:gap-4 xl:gap-14"
+>
+  <div>
+    <h1 id="homeTitle"></h1>
+  </div>
 
-    <div>
-        <h1 id="homeTitle"></h1>
+  <hr
+    id="homedivider"
+    class="rounded w-40 mt-5 mb-5 lg:w-[2px] lg:h-40 lg:bg-[#979797]"
+  />
+
+  <div>
+    <!-- <div id="homesubtitle" class="flex flex-col justify-center items-center text-center mb-5 max-w-[180px] sm:max-w-[300px]"> -->
+    <div
+      id="homesubtitle"
+      class="flex flex-col justify-center items-center text-center mb-5 max-w-[180px] sm:max-w-[300px]"
+    >
+      <p>
+        making a <span class="text-[#00FFFF] boldtext">difference</span> with
+        <span class="text-[#00FFFF] boldtext">intuitive</span>,
+        <span class="text-[#00FFFF] boldtext">scalable</span> software
+      </p>
+      <p></p>
     </div>
+    <div class="relative inline-block">
+      <div
+        id="viewworkbuttonbg"
+        class="absolute inset-0 translate-x-[-5px] translate-y-[5px] z-0 rounded-sm bg-[#00FFFF] blur-3_8px transition-all duration-150 active:translate-x-[-4px] active:translate-y-[6px]"
+      ></div>
 
-    <hr id="homedivider" class="rounded w-40 mt-5 mb-5 lg:w-[2px] lg:h-40 lg:bg-[#979797]" >
-
-
-    <div>
-        <!-- <div id="homesubtitle" class="flex flex-col justify-center items-center text-center mb-5 max-w-[180px] sm:max-w-[300px]"> -->
-        <div id="homesubtitle" class="flex flex-col justify-center items-center text-center mb-5 max-w-[180px] sm:max-w-[300px]">
-            <p>making a <span class="text-[#00FFFF] boldtext">difference</span> with <span class="text-[#00FFFF] boldtext">intuitive</span>, <span class="text-[#00FFFF] boldtext">scalable</span> software</p>
-            <p></p>
-        </div>
-        <div class="relative inline-block">
-            <div id="viewworkbuttonbg"
-                class="absolute inset-0 translate-x-[-5px] translate-y-[5px] z-0 rounded-sm bg-[#00FFFF] blur-3_8px 
-                    transition-all duration-150 
-                    active:translate-x-[-4px] active:translate-y-[6px]">
-            </div>
-
-            <button id="viewworkbutton"
-                (click)="goToPart('projectspage')"
-                type="submit"
-                class="relative z-10 border rounded-sm py-0.5 px-4.5 border-[#979797] 
-                    transition-all duration-150 hover:cursor-pointer
-                    active:translate-x-[-2px] active:translate-y-[2px] active:scale-[0.97]">
-                <h4>view work</h4>
-            </button>
-        </div>
+      <button
+        id="viewworkbutton"
+        (click)="goToPart('projectspage')"
+        type="submit"
+        class="relative z-10 border rounded-sm py-0.5 px-4.5 border-[#979797] transition-all duration-150 hover:cursor-pointer active:translate-x-[-2px] active:translate-y-[2px] active:scale-[0.97]"
+      >
+        <h4>view work</h4>
+      </button>
     </div>
+  </div>
 </div>
-
-
-
-
-

@@ -17,7 +17,7 @@
 </div> -->
 
 <div
-  class="flex flex-col justify-center items-center relative z-0"
+  class="flex flex-col justify-center items-center relative z-0 overflow-y-hidden"
   (mousemove)="onMouseMove($event)"
 >
   <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
@@ -36,11 +36,13 @@
   <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
     <app-experiencepage
       id="experiencepage"
-      class="scroll-mt-10"
+      class="scroll-mt-20"
     ></app-experiencepage>
   </div>
-  <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 bg-[#979797]">
-    <app-projectspage id="projectspage" class="scroll-mt-10"></app-projectspage>
+  <div
+    class="w-full min-h-dvh px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 bg-[#979797]"
+  >
+    <app-projectspage id="projectspage" class="scroll-mt-20"></app-projectspage>
   </div>
 
   <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
