@@ -9,19 +9,20 @@ import { Navbar } from './navbar/navbar';
 import { ElementRef, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 
-import { initialHomePageAnimation } from './app.animations';
+import { webpageAnimation } from './app.animations';
+import { Loadingscreen } from './loadingscreen/loadingscreen';
 
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet, Aboutmepage, Contactmepage, Experiencepage, Homepage, Projectspage, Navbar
+    RouterOutlet, Aboutmepage, Contactmepage, Experiencepage, Homepage, Projectspage, Navbar, Loadingscreen
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
     ngAfterViewInit() {
-    initialHomePageAnimation();
+    webpageAnimation();
   }
 
   protected readonly title = signal("Solomon's Portfolio");

@@ -28,7 +28,7 @@ export class Projectspage {
       title: "Mysh Shell",
       gitlink: "https://github.com/sadsalmonnn/Mysh-Unix-Shell",
       description: "A modular Unix shell and concurrent client-server chat system in C using POSIX APIs and UNIX sockets.",
-      tags: ["c", "posix apis", "unix sockets", "bash"],
+      tags: ["c", "posix apis", "unix sockets", "bash", "docker"],
       imgpath: "./assets/images/projectimgs/mysh.jpeg"
     },
         {
