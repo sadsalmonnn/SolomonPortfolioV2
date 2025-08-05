@@ -20,57 +20,66 @@ gsap.registerPlugin(ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlug
 
 
 export function webpageAnimation() {
+  let masterTL = gsap.timeline();
 
-    let masterTL = gsap.timeline();
+  
+  masterTL.add(animateLoadingPage());
 
-    masterTL.add(animateLoadingPage());
-    masterTL.add(animateLandingPage(), 5);
+  // Then show homepage after loading is complete
+    masterTL.add(animateLandingPage());
 
-    function animateLandingPage() {
-        let tl = gsap.timeline({
-            defaults: {
-                ease: "power1.out"
-            }
-        });
-        tl
-        .set('#homedivider', {
-            autoAlpha: 0,
-            scaleX: 0,
-        })
+  function animateLandingPage() {
+    let tl = gsap.timeline({
+      defaults: {
+        ease: "power1.out",
+      },
+    });
+    tl
+      .set("#homedivider", {
+        autoAlpha: 0,
+        scaleX: 0,
+      })
+      
+      .to("#homepage", {autoAlpha: 1, duration: 1})
+      .from("#viewworkbuttonwhole", {autoAlpha: 0, y: -50, duration: 1, ease: "power4.out", delay: "-0.5"})
+      .to("#homeTitle", {
+        duration: 2,
+        text: { value: "SOFTWARE<br>DEVELOPER", delimiter: "" },
+      })
+      .to("#homeTitle", {
+        duration: 2,
+        text: { value: "SOLOMON<br>A. DIONISIO", delimiter: "" },
+      })
+      .to(
+        "#homedivider",
+        {
+          autoAlpha: 1,
+          scaleX: 1,
+          transformOrigin: "center",
+        },
+        "-=1"
+      );
 
-        .to("#homeTitle", {
-            duration: 2,
-            delay: 1,
-            text: { value: "SOFTWARE<br>DEVELOPER", delimiter: "" }
-        })
+    return tl;
+  }
 
-        .to("#homeTitle", {
-            duration: 2,
-            text: { value: "SOLOMON<br>A. DIONISIO", delimiter: "" }
-        })
+  function animateLoadingPage() {
+    let tl = gsap.timeline();
 
-        .to('#homedivider', {
-            autoAlpha: 1,
-            scaleX: 1,
-            transformOrigin: 'center'
-        }, "-=1")
+    tl.set("#loadingscreen", { autoAlpha: 0 })
+      .to("#loadingscreen", { autoAlpha: 1, duration: 1, ease: "power4.out" })
+      .to("#loadingscreen", {
+        autoAlpha: 0,
+        duration: 4,
+        delay: 1.5,
+        ease: "power4.out",
+      }).add(() => {
+        const el = document.getElementById("loadingscreen");
+        if (el) el.classList.add("hidden");
+        const el1 = document.getElementById("appwrap")
+        if (el1) el1.classList.remove("max-h-dvh")
+    });
 
-        return tl
-    }
-
-
-    function animateLoadingPage() {
-        var tl = gsap.timeline();
-
-        tl
-        .set("#loadingscreen", { autoAlpha: 0 })
-
-        .to("#loadingscreen", { autoAlpha: 1, duration: 4, ease: "power4.out" });
-
-        .add(() => {})
-
-        return tl;
-    }
-
-
+    return tl;
+  }
 }

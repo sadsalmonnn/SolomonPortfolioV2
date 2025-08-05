@@ -1,16 +1,66 @@
-<app-loadingscreen></app-loadingscreen>
-<div class="hidden" id="mainpage">
+<div id="appwrap" class="overflow-y-hidden max-h-dvh relative">
   <div
     #paintBlob
     class="fixed top-0 left-0 w-40 h-40 bg-[#00FFFF] rounded-full opacity-30 blur-[90px] -z-10 pointer-events-none"
   ></div>
 
-  <app-navbar id="navbar"></app-navbar>
+  <app-navbar id="navbar" class="z-0 opacity-0 invisible"></app-navbar>
 
   <div
-    class="flex flex-col justify-center items-center relative z-0 overflow-y-hidden"
+    class="flex flex-col justify-center items-center z-0 overflow-y-hidden"
     (mousemove)="onMouseMove($event)"
   >
+    <app-loadingscreen
+      id="loadingscreen"
+      class="z-10 w-full absolute h-dvh left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white"
+    ></app-loadingscreen>
+    <div
+      class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 opacity-0 invisible"
+      id="homepage"
+    >
+      <app-homepage class="scroll-mt-20"></app-homepage>
+    </div>
+
+    <div id="aboutmerectangle" class="bg-[#979797]">
+      <div
+        id="aboutmepage"
+        class="w-full min-h-dvh px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 opacity-0 invisible"
+      >
+        <app-aboutmepage class="scroll-mt-10 w-full h-full"></app-aboutmepage>
+      </div>
+    </div>
+
+    <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50" id="experiencepage">
+      <app-experiencepage class="scroll-mt-20"></app-experiencepage>
+    </div>
+    <div
+      id="projectspage"
+      class="w-full min-h-dvh px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 bg-[#979797]"
+    >
+      <app-projectspage class="scroll-mt-20"></app-projectspage>
+    </div>
+
+    <div id="contactmepage" class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
+      <app-contactmepage class="scroll-mt-10"></app-contactmepage>
+    </div>
+  </div>
+</div>
+<!-- 
+
+<div
+  #paintBlob
+  class="fixed top-0 left-0 w-40 h-40 bg-[#00FFFF] rounded-full opacity-30 blur-[90px] -z-10 pointer-events-none"
+></div>
+
+<app-navbar id="navbar" class="opacity-0 invisible"></app-navbar>
+
+<div
+  class="flex flex-col justify-center items-center relative z-0 overflow-y-hidden"
+  (mousemove)="onMouseMove($event)"
+>
+  <app-loadingscreen id="loadingscreen" class="absolute"></app-loadingscreen>
+  
+  <div id="maincontent" class="opacity-0 invisible">
     <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
       <app-homepage id="homepage" class="scroll-mt-20"></app-homepage>
     </div>
@@ -46,4 +96,4 @@
       ></app-contactmepage>
     </div>
   </div>
-</div>
+</div> -->
