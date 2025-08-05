@@ -20,13 +20,18 @@ gsap.registerPlugin(ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlug
 
 
 export function webpageAnimation() {
+  
   let masterTL = gsap.timeline();
 
-  
-  masterTL.add(animateLoadingPage());
 
+  // Animate loading screen
+  masterTL.add(removeanimateLoadingPage());
+  
   // Then show homepage after loading is complete
-    masterTL.add(animateLandingPage());
+  masterTL.add(animateLandingPage());
+
+  // Then show about page after homepage
+  masterTL.add(animateAboutPage());
 
   function animateLandingPage() {
     let tl = gsap.timeline({
@@ -45,10 +50,12 @@ export function webpageAnimation() {
       .to("#homeTitle", {
         duration: 2,
         text: { value: "SOFTWARE<br>DEVELOPER", delimiter: "" },
+        delay: "-=2"
       })
       .to("#homeTitle", {
         duration: 2,
         text: { value: "SOLOMON<br>A. DIONISIO", delimiter: "" },
+        delay: "-=2"
       })
       .to(
         "#homedivider",
@@ -63,22 +70,47 @@ export function webpageAnimation() {
     return tl;
   }
 
-  function animateLoadingPage() {
-    let tl = gsap.timeline();
+  function removeanimateLoadingPage() {
+    const tl = gsap.timeline();
 
-    tl.set("#loadingscreen", { autoAlpha: 0 })
-      .to("#loadingscreen", { autoAlpha: 1, duration: 1, ease: "power4.out" })
+    tl.to("#loadingscreen", { autoAlpha: 1, duration: 1 }) // optional fade-in
       .to("#loadingscreen", {
         autoAlpha: 0,
-        duration: 4,
-        delay: 1.5,
-        ease: "power4.out",
-      }).add(() => {
+        duration: 1.5,
+        delay: 1,
+        ease: "power2.out",
+      })
+      .add(() => {
         const el = document.getElementById("loadingscreen");
-        if (el) el.classList.add("hidden");
-        const el1 = document.getElementById("appwrap")
-        if (el1) el1.classList.remove("max-h-dvh")
-    });
+        if (el) el.style.display = "none";
+
+        document.body.classList.remove("overflow-hidden");
+
+        const appwrap = document.getElementById("appwrap");
+        if (appwrap) {
+          appwrap.classList.remove("overflow-y-hidden");
+          appwrap.classList.remove("max-h-dvh");
+        }
+      })
+      .to("app-root", { autoAlpha: 1, duration: 1, ease: "power2.out" }, "+=0.1");
+
+    return tl;
+  }
+
+  function animateAboutPage() {
+    let tl = gsap.timeline();
+
+    tl
+    .set("#aboutmeleftImage", {autoAlpha: 0})
+    .set("#aboutmemiddleImage", {autoAlpha: 0})
+    .set("#aboutmerightImage", {autoAlpha: 0})
+    .from("#aboutmepage", {width: 0, padding: 0, duration: 1, ease: "power4.out"})
+    .from("#aboutmetitle", { autoAlpha: 0, duration: 1, }, "-=0.8")
+    .from("#aboutmetext", { autoAlpha: 0, duration: 1, }, "-=0.85")
+    .from("#aboutmemiddleImage", { autoAlpha: 0, scale: 0, duration: 1, ease: "power4.out" }, "-=0.85")
+    .from("#aboutmeleftImage", { x:100, autoAlpha: 0, duration: 1, ease: "power4.out" }, "-=0.85")
+    .from("#aboutmerightImage", { x:-100, autoAlpha: 0, duration: 1, ease: "power4.out" }, "-=0.85")
+
 
     return tl;
   }

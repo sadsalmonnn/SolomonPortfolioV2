@@ -15,13 +15,24 @@ import { Loadingscreen } from './loadingscreen/loadingscreen';
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet, Aboutmepage, Contactmepage, Experiencepage, Homepage, Projectspage, Navbar, Loadingscreen
+    RouterOutlet, Aboutmepage, Contactmepage, Experiencepage, Homepage, Projectspage, Navbar
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
-    ngAfterViewInit() {
+
+
+  ngAfterViewInit() {
+    gsap.to("#preloader", {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        const loader = document.getElementById("preloader");
+        if (loader) loader.remove();
+      }
+    });
+
     webpageAnimation();
   }
 
