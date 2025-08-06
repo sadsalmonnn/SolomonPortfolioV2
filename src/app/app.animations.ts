@@ -20,6 +20,15 @@ gsap.registerPlugin(ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlug
 
 
 export function webpageAnimation() {
+
+  ScrollTrigger.create({
+    trigger: "#aboutmepage",
+    markers: true,
+    start: "top bottom-=200px",
+    end: "bottom+=20% top",
+    onEnter: () => {animateAboutPage()},
+    once: true
+  });
   
   let masterTL = gsap.timeline();
 
@@ -29,9 +38,6 @@ export function webpageAnimation() {
   
   // Then show homepage after loading is complete
   masterTL.add(animateLandingPage());
-
-  // Then show about page after homepage
-  masterTL.add(animateAboutPage());
 
   function animateLandingPage() {
     let tl = gsap.timeline({
@@ -44,6 +50,7 @@ export function webpageAnimation() {
         autoAlpha: 0,
         scaleX: 0,
       })
+      .set("navbar", { autoAlpha: 0 })
       
       .to("#homepage", {autoAlpha: 1, duration: 1})
       .from("#viewworkbuttonwhole", {autoAlpha: 0, y: -50, duration: 1, ease: "power4.out", delay: "-0.5"})
@@ -65,7 +72,8 @@ export function webpageAnimation() {
           transformOrigin: "center",
         },
         "-=1"
-      );
+      ).to("navbar", {
+        autoAlpha: 1,})
 
     return tl;
   }
