@@ -52,26 +52,26 @@ export function webpageAnimation() {
       .set("#homedivider", {
         autoAlpha: 0,
         scaleX: 0,
-      })
-      .set("navbar", { autoAlpha: 0 })
-      
+      })   
       .to("#homepage", {autoAlpha: 1, duration: 1})
-      .from("#viewworkbuttonwhole", {autoAlpha: 0, y: -50, duration: 1, ease: "power4.out", delay: "-0.5"})
+      .from("#viewworkbuttonwhole", {autoAlpha: 0, y: -50, duration: 1, ease: "power4.out"})
+        .to("#navbar", {autoAlpha: 1}, "-=0.8")
       .to("#homeTitle", {
         duration: 2,
         text: { value: "SOFTWARE<br>DEVELOPER", delimiter: "" },
         delay: "-=2"
-      })
+      },"-=0.4")
       .to("#homeTitle", {
         duration: 2,
         text: { value: "SOLOMON<br>A. DIONISIO", delimiter: "" },
         delay: "-=2"
       })
-      .to(
+      .from(
         "#homedivider",
         {
-          autoAlpha: 1,
-          scaleX: 1,
+          autoAlpha: 0,
+          scaleX: 0,
+          height: 0,
           transformOrigin: "center",
         },
         "-=1"
