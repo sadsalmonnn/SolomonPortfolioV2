@@ -1,7 +1,7 @@
 <div class="flex justify-center items-center min-h-dvh px-4">
   <div class="w-full max-w-[900px] my-12">
     <div class="relative inline-block text-left mx-auto">
-      <h2 class="text-center">EXPERIENCE</h2>
+      <h2 class="text-center" id="exptitle">EXPERIENCE</h2>
       <div class="flex mt-1 justify-start">
         <div
           class="w-[33px] h-[10px] sm:w-[38px] sm:h-[15px] md:w-[45px] md:h-[20px] lg:w-[55px] lg:h-[25px] bg-[#00FFFF]"
@@ -17,11 +17,11 @@
     >
       @for (experience of experiences; track experience; let i = $index) {
       <li>
-        @if (i > 0) {
-        <hr class="" />
+        <!-- @if (i > 0) {
+        <hr class="hrexp" />
         } @else {
         <hr class="hidden" />
-        }
+        } -->
         <div class="timeline-middle">
           <div class="relative">
             <svg
@@ -76,7 +76,7 @@
             'md:text-end': i % 2 === 0,
             'md:text-start': i % 2 !== 0
           }"
-          class="mb-10 ml-5 mr-5 md:text-end"
+          class="mb-10 ml-5 mr-5 md:text-end expcontentsection"
         >
           <time class="ptalics"
             >{{ experience.startdate }} - {{ experience.enddate }}</time
@@ -91,13 +91,14 @@
         </div>
         @if (i === (experiences.length-1)) {
         <hr
+          class="hrexp"
           style="
             border-bottom-left-radius: 9999px;
             border-bottom-right-radius: 9999px;
           "
         />
         } @else {
-        <hr />
+        <hr class="hrexp" />
         }
       </li>
       }

@@ -10,7 +10,6 @@
     class="flex flex-col justify-center items-center z-0 overflow-y-hidden"
     (mousemove)="onMouseMove($event)"
   >
-
     <div
       class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 opacity-0 invisible"
       id="homepage"
@@ -18,14 +17,15 @@
       <app-homepage class="scroll-mt-20"></app-homepage>
     </div>
 
-
-      <div
-        id="aboutmepage"
-        class="w-full min-h-dvh px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 bg-[#979797] opacity-0"
-      >
-        <app-aboutmepage class="scroll-mt-10 w-full h-full" id="aboutmepagecontent"></app-aboutmepage>
-      </div>
-
+    <div
+      id="aboutmepage"
+      class="w-full min-h-dvh px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 bg-[#979797] opacity-0"
+    >
+      <app-aboutmepage
+        class="scroll-mt-10 w-full h-full"
+        id="aboutmepagecontent"
+      ></app-aboutmepage>
+    </div>
 
     <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50" id="experiencepage">
       <app-experiencepage class="scroll-mt-20"></app-experiencepage>
@@ -43,55 +43,3 @@
     </div>
   </div>
 </div>
-<!-- 
-
-<div
-  #paintBlob
-  class="fixed top-0 left-0 w-40 h-40 bg-[#00FFFF] rounded-full opacity-30 blur-[90px] -z-10 pointer-events-none"
-></div>
-
-<app-navbar id="navbar" class="opacity-0 invisible"></app-navbar>
-
-<div
-  class="flex flex-col justify-center items-center relative z-0 overflow-y-hidden"
-  (mousemove)="onMouseMove($event)"
->
-  <app-loadingscreen id="loadingscreen" class="absolute"></app-loadingscreen>
-  
-  <div id="maincontent" class="opacity-0 invisible">
-    <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
-      <app-homepage id="homepage" class="scroll-mt-20"></app-homepage>
-    </div>
-
-    <div
-      class="w-full min-h-dvh bg-[#979797] px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50"
-    >
-      <app-aboutmepage
-        id="aboutmepage"
-        class="scroll-mt-10 w-full h-full"
-      ></app-aboutmepage>
-    </div>
-
-    <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
-      <app-experiencepage
-        id="experiencepage"
-        class="scroll-mt-20"
-      ></app-experiencepage>
-    </div>
-    <div
-      class="w-full min-h-dvh px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50 bg-[#979797]"
-    >
-      <app-projectspage
-        id="projectspage"
-        class="scroll-mt-20"
-      ></app-projectspage>
-    </div>
-
-    <div class="px-10 sm:px-20 md:px-30 lg:px-40 xl:px-50">
-      <app-contactmepage
-        id="contactmepage"
-        class="scroll-mt-10"
-      ></app-contactmepage>
-    </div>
-  </div>
-</div> -->

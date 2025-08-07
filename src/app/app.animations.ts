@@ -21,14 +21,17 @@ gsap.registerPlugin(ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlug
 
 export function webpageAnimation() {
 
+    animationExperiencePage()
+    animateExpTimeline()
   ScrollTrigger.create({
     trigger: "#aboutmepage",
-    markers: true,
-    start: "top bottom-=200px",
-    end: "bottom+=20% top",
-    onEnter: () => {animateAboutPage()},
+    // markers: true,
+    start: "top bottom-=5%",
+    end: "bottom top",
+    onEnter: animateAboutPage,
     once: true
   });
+
   
   let masterTL = gsap.timeline();
 
@@ -112,7 +115,14 @@ export function webpageAnimation() {
     .set("#aboutmeleftImage", {autoAlpha: 0})
     .set("#aboutmemiddleImage", {autoAlpha: 0})
     .set("#aboutmerightImage", {autoAlpha: 0})
-    .from("#aboutmepage", {width: 0, padding: 0, duration: 1, ease: "power4.out"})
+    .to("#aboutmepage", { autoAlpha: 1, duration: 0.01 })
+    .from("#aboutmepage", {
+        width: 0,
+        paddingLeft: 0,
+        paddingRight: 0,
+        duration: 1,
+        ease: "power4.out"
+    })
     .from("#aboutmetitle", { autoAlpha: 0, duration: 1, }, "-=0.8")
     .from("#aboutmetext", { autoAlpha: 0, duration: 1, }, "-=0.85")
     .from("#aboutmemiddleImage", { autoAlpha: 0, scale: 0, duration: 1, ease: "power4.out" }, "-=0.85")
@@ -122,4 +132,47 @@ export function webpageAnimation() {
 
     return tl;
   }
+
+  function animationExperiencePage() {
+    
+    gsap.from("#exptitle", {
+    scrollTrigger: {
+        trigger: "#exptitle",
+        start: "top bottom-=15%", // adjust as needed
+        toggleActions: "play none none none", // plays once
+    },
+    autoAlpha: 0,
+    x: -100,
+    duration: 1,
+    ease: "power4.out"
+    });
+  }
+
+    function animateExpTimeline() {
+    const hrs = document.querySelectorAll(".hrexp");
+    const content = document.getElementsByClassName("expcontentsection");
+
+    hrs.forEach((el, index) => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: "top bottom-=15%",
+                end: "bottom+=20% top",
+                once: true,
+                // markers: true,
+            }
+        });
+
+        tl.from(el, {
+            scaleY: 0,
+            transformOrigin: "top center",
+            duration: 1,
+            ease: "power2.out",
+        }).from(content[index], {
+            autoAlpha: 0.2,
+            duration: 1,
+            ease: "power2.out",
+        }, "<"); // "<" means it starts at the same time as the previous animation
+    });
+    }
 }
