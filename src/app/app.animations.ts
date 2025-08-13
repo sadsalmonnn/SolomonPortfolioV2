@@ -21,15 +21,26 @@ gsap.registerPlugin(ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlug
 
 export function webpageAnimation() {
 
-    animationExperiencePage()
-    animateExpTimeline()
+  animationExperiencePage()
+  animateExpTimeline()
   ScrollTrigger.create({
     trigger: "#aboutmepage",
     // markers: true,
     start: "top bottom-=5%",
     end: "bottom top",
     onEnter: animateAboutPage,
-    once: true
+    once: true,
+    // scrub: true, // TODO: Figure out how to scrub the aboutmepage
+  });
+
+    ScrollTrigger.create({
+    trigger: "#projectspage",
+    // markers: true,
+    start: "top bottom-=5%",
+    end: "bottom top",
+    onEnter: animateProjectsPage,
+    once: true,
+    // scrub: true, // TODO: Figure out how to scrub the aboutmepage
   });
 
   
@@ -81,6 +92,65 @@ export function webpageAnimation() {
     return tl;
   }
 
+
+// function animateLandingPage() {
+//   let tl = gsap.timeline({
+//     defaults: { ease: "power1.out" }
+//   });
+
+//   tl
+//     // Hide elements initially
+//     .set("#homedivider", { autoAlpha: 0, scaleX: 0, height: 0 })
+//     .set("#homeLeft", { autoAlpha: 0 })
+//     .set("#homeTitle", { autoAlpha: 0, text: "" })
+//     .set("#navbar", { autoAlpha: 0 })
+
+//     // Show homepage background
+//     .to("#homepage", { autoAlpha: 1, duration: 1 })
+
+//     // Show the navbar and button
+//     .from("#viewworkbuttonwhole", {
+//       autoAlpha: 0,
+//       y: -50,
+//       duration: 1,
+//       ease: "power4.out"
+//     }, "<")
+//     .to("#navbar", { autoAlpha: 1 }, "-=0.8")
+
+//     // Fade in the title before typing
+//     .to("#homeTitle", { autoAlpha: 1, duration: 0.3 })
+
+//     // Start typing after title is fully visible
+//     .to("#homeTitle", {
+//       duration: 2,
+//       text: { value: "SOFTWARE<br>DEVELOPER", delimiter: "" }
+//     }, "+=0.2")
+//     .to("#homeTitle", {
+//       duration: 2,
+//       text: { value: "SOLOMON<br>A. DIONISIO", delimiter: "" }
+//     }, "-=1.5")
+
+//     // Animate the divider
+//     .to("#homedivider", {
+//       autoAlpha: 1,
+//       scaleX: 1,
+//       height: "100%",
+//       transformOrigin: "center",
+//       duration: 1
+//     }, "-=1")
+
+//     // Reveal left panel
+//     .to("#homeLeft", {
+//       autoAlpha: 1,
+//       duration: 0.5,
+//       onStart: () => {
+//         document.getElementById("homeLeft")?.classList.remove("opacity-0");
+//       }
+//     }, "<");
+
+//   return tl;
+// }
+
   function removeanimateLoadingPage() {
     const tl = gsap.timeline();
 
@@ -109,7 +179,9 @@ export function webpageAnimation() {
   }
 
   function animateAboutPage() {
-    let tl = gsap.timeline();
+    let tl = gsap.timeline(
+      
+    );
 
     tl
     .set("#aboutmeleftImage", {autoAlpha: 0})
@@ -136,19 +208,44 @@ export function webpageAnimation() {
   function animationExperiencePage() {
     
     gsap.from("#exptitle", {
-    scrollTrigger: {
-        trigger: "#exptitle",
-        start: "top bottom-=15%", // adjust as needed
-        toggleActions: "play none none none", // plays once
-    },
-    autoAlpha: 0,
-    x: -100,
-    duration: 1,
-    ease: "power4.out"
+      scrollTrigger: {
+          trigger: "#exptitle",
+          start: "top bottom-=15%", // adjust as needed
+          toggleActions: "play none none none", // plays once
+      },
+      autoAlpha: 0,
+      x: -100,
+      duration: 1,
+      ease: "power4.out"
+    });
+
+    gsap.from("#expblueblock", {
+      scrollTrigger: {
+          trigger: "#exptitle",
+          start: "top bottom-=15%", // adjust as needed
+          toggleActions: "play none none none", // plays once
+          // markers: true
+      },
+      width: 0,
+      duration: 1,
+      ease: "power4.out"
+    });
+
+    gsap.from("#expgreyblock", {
+      scrollTrigger: {
+          trigger: "#exptitle",
+          start: "top bottom-=15%", // adjust as needed
+          toggleActions: "play none none none", // plays once
+          markers: true
+      },
+      delay: "-=0.8",
+      width: 0,
+      duration: 1,
+      ease: "power4.out"
     });
   }
 
-    function animateExpTimeline() {
+  function animateExpTimeline() {
     const hrs = document.querySelectorAll(".hrexp");
     const content = document.getElementsByClassName("expcontentsection");
 
@@ -174,5 +271,24 @@ export function webpageAnimation() {
             ease: "power2.out",
         }, "<"); // "<" means it starts at the same time as the previous animation
     });
-    }
+  }
+
+  function animateProjectsPage() {
+
+    let tl = gsap.timeline()
+
+    tl
+      // .set(".projectcontainer", {autoAlpha: 0})
+      .to("#projectspage", { autoAlpha: 1, duration: 0.01 })
+      .from("#projectspage", {
+          width: 0,
+          paddingLeft: 0,
+          paddingRight: 0,
+          duration: 1,
+          ease: "power4.out"
+      })
+      //.from() // TODO: do something with title
+
+      
+  }
 }
