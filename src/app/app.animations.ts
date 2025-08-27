@@ -74,7 +74,7 @@ export function webpageAnimation() {
       },"-=0.4")
       .to("#homeTitle", {
         duration: 2,
-        text: { value: "SOLOMON<br>A. DIONISIO", delimiter: "" },
+        text: { value: "SOLOMON<br>ADOR DIONISIO", delimiter: "" },
         delay: "-=2"
       })
       .from(
@@ -179,14 +179,8 @@ export function webpageAnimation() {
   }
 
   function animateAboutPage() {
-    let tl = gsap.timeline(
-      
-    );
-
+    let tl = gsap.timeline();
     tl
-    .set("#aboutmeleftImage", {autoAlpha: 0})
-    .set("#aboutmemiddleImage", {autoAlpha: 0})
-    .set("#aboutmerightImage", {autoAlpha: 0})
     .to("#aboutmepage", { autoAlpha: 1, duration: 0.01 })
     .from("#aboutmepage", {
         width: 0,
@@ -195,12 +189,8 @@ export function webpageAnimation() {
         duration: 1,
         ease: "power4.out"
     })
-    .from("#aboutmetitle", { autoAlpha: 0, duration: 1, }, "-=0.8")
-    .from("#aboutmetext", { autoAlpha: 0, duration: 1, }, "-=0.85")
-    .from("#aboutmemiddleImage", { autoAlpha: 0, scale: 0, duration: 1, ease: "power4.out" }, "-=0.85")
-    .from("#aboutmeleftImage", { x:100, autoAlpha: 0, duration: 1, ease: "power4.out" }, "-=0.85")
-    .from("#aboutmerightImage", { x:-100, autoAlpha: 0, duration: 1, ease: "power4.out" }, "-=0.85")
-
+    .from("#aboutmetitle", { autoAlpha: 0, duration: 1, })
+    .from("#aboutmetext", { autoAlpha: 0, duration: 1, })
 
     return tl;
   }

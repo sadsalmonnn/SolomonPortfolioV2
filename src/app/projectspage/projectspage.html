@@ -1,13 +1,39 @@
 <div
-  class="my-12 flex flex-col justify-center items-center h-full min-h-dvh text-[#fff]"
+  class="flex flex-col items-center h-full my-10"
 >
-  <div class="flex flex-row justify-baseline items-baseline gap-2 mb-">
+  <!-- <div class="flex flex-col justify-center items-center text-center">
     <h2>Projects</h2>
-  </div>
 
-  <div class="lg:grid lg:grid-cols-2 lg:gap-8 w-full">
+      <div class="mt-1 justify-start flex flex-row">
+      <div
+        id="aboutmeblueblock"
+        class="w-[33px] h-[10px] sm:w-[38px] sm:h-[15px] md:w-[45px] md:h-[20px] lg:w-[55px] lg:h-[25px] bg-[#00FFFF]"
+      ></div>
+      <div
+        id="aboutmegreyblock"
+        class="w-[57px] h-[10px] sm:w-[70px] sm:h-[15px] md:w-[90px] md:h-[20px] lg:w-[110px] lg:h-[25px] bg-[#979797]"
+      ></div>
+      </div>
+  </div> -->
+
+    <div class="relative inline-block text-left mx-auto">
+      <h2 class="text-center" id="exptitle">PROJECTS</h2>
+      <div class="flex mt-1 justify-center">
+        <div
+          id="expblueblock"
+          class="w-[33px] h-[10px] sm:w-[38px] sm:h-[15px] md:w-[45px] md:h-[20px] lg:w-[55px] lg:h-[25px] bg-[#00FFFF]"
+        ></div>
+        <div
+          id="expgreyblock"
+          class="w-[57px] h-[10px] sm:w-[70px] sm:h-[15px] md:w-[90px] md:h-[20px] lg:w-[110px] lg:h-[25px] bg-[#979797]"
+        ></div>
+      </div>
+    </div>
+
+
+  <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8 w-full">
     @for (project of projects; track project) {
-    <div class="flex flex-col w-full gap-2 pt-8 pb-1 projectcontainer">
+    <div class="flex flex-col w-full gap-2 pb-1 projectcontainer">
       <div
         class="relative w-full aspect-[16/9] group rounded-md overflow-hidden"
       >
