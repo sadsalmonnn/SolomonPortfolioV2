@@ -23,17 +23,8 @@ export function webpageAnimation() {
 
   animationExperiencePage()
   animateExpTimeline()
+  animateAboutPage();
   ScrollTrigger.create({
-    trigger: "#aboutmepage",
-    // markers: true,
-    start: "top bottom-=5%",
-    end: "bottom top",
-    onEnter: animateAboutPage,
-    once: true,
-    // scrub: true, // TODO: Figure out how to scrub the aboutmepage
-  });
-
-    ScrollTrigger.create({
     trigger: "#projectspage",
     // markers: true,
     start: "top bottom-=5%",
@@ -179,21 +170,52 @@ export function webpageAnimation() {
   }
 
   function animateAboutPage() {
-    let tl = gsap.timeline();
-    tl
-    .to("#aboutmepage", { autoAlpha: 1, duration: 0.01 })
-    .from("#aboutmepage", {
-        width: 0,
-        paddingLeft: 0,
-        paddingRight: 0,
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#aboutmepage",
+        markers: true,
+        start: "top bottom",
+        end: "bottom top",
+        once: true
+        // scrub: true // uncomment if you want scrub later
+      }
+    });
+
+    tl.from("#aboutmetitle", {
+        autoAlpha: 0,
+        x: -100,
         duration: 1,
         ease: "power4.out"
-    })
-    .from("#aboutmetitle", { autoAlpha: 0, duration: 1, })
-    .from("#aboutmetext", { autoAlpha: 0, duration: 1, })
+      })
+      .from("#aboutmeblueblock", {
+        width: 0,
+        duration: 1,
+        ease: "power4.out"
+      }, "<")
+      .from("#aboutmegreyblock", {
+        delay: "-=0.8",
+        width: 0,
+        duration: 1,
+        ease: "power4.out"
+      }, "<")
+
+      .from("#aboutmetext", {
+        y: -100,
+        autoAlpha: 0,
+        duration: 1,
+        ease: "power4.out"
+      }, "<")
+
+      .from("#aboutmeimg", {
+        opacity: 0,
+        y: -100,
+        duration: 1,
+        ease: "power4.out"
+      }, "<1");
 
     return tl;
   }
+
 
   function animationExperiencePage() {
     
@@ -202,6 +224,7 @@ export function webpageAnimation() {
           trigger: "#exptitle",
           start: "top bottom-=15%", // adjust as needed
           toggleActions: "play none none none", // plays once
+          markers: true
       },
       autoAlpha: 0,
       x: -100,
@@ -226,7 +249,7 @@ export function webpageAnimation() {
           trigger: "#exptitle",
           start: "top bottom-=15%", // adjust as needed
           toggleActions: "play none none none", // plays once
-          markers: true
+          // markers: true
       },
       delay: "-=0.8",
       width: 0,
