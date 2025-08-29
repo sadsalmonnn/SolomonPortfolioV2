@@ -341,7 +341,7 @@ const content = document.getElementsByClassName("projectcontainer");
         start: "top bottom",
         end: "bottom+=20% top",
         toggleActions: "play none none none",
-        markers: true
+        // markers: true
       }
     });
 
