@@ -1,16 +1,39 @@
-<div class="mt-12 flex flex-col items-center">
-  <div
-    class="flex flex-col justify-center items-end text-right max-w-[765px] md:max-w-[555px] lg:max-w-[850px]"
-  >
-    <h3 class="lg:mb-4">
-      Let’s work <span class="text-[#00FFFF]">together</span> and make something
-      <span class="text-[#00FFFF]">awesome</span>!
-    </h3>
-    <h4 class="mb-3.5 hover:cursor-pointer underline my-custom-h4">
-      solomon.adord@gmail.com
-    </h4>
+<div class="mt-12 flex flex-col gap-4 justify-center min-h-dvh">
 
-    <div class="flex flex-row gap-7 justify-center items-center">
+  <!-- <div
+    class="relative hidden sm:inline-block h-full max-w-[850px] max-h-[600px] overflow-hidden"
+  >
+    <div class="relative inline-block">
+      <img
+        src="./assets/images/contactmeicons/solomon.svg"
+        alt=""
+        class="absolute inset-0 h-full object-contain blur-[8px] opacity-80 z-0 pointer-events-none"
+        style="filter: drop-shadow(0 0 15px #7cf7f5)"
+      />
+      <img
+        src="./assets/images/contactmeicons/solomon.svg"
+        alt=""
+        class="relative z-10 block h-auto object-contain"
+      />
+    </div>
+  </div> -->
+
+  <div class="flex items-center justify-center">
+
+    <div class="rounded-full ring-4 ring-[#979797] p-2" id="contactcircleimg">
+
+      <img src="./assets/images/image2.jpg" alt="Profile" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full object-cover">
+    </div>
+  </div>
+  <div
+    class="flex flex-col justify-center items-center text-right"
+  >
+    <h4 id="contacttext"></h4>
+    <p class="mb-3.5 hover:cursor-pointer underline" id="contactemail">
+      solomon.adord@gmail.com
+    </p>
+
+    <div class="flex flex-row justify-center items-center w-full gap-6">
       <div class="flex relative w-fit h-fit justify-center items-center z-0">
         <button
           class="z-10 transition-all duration-150 hover:cursor-pointer active:translate-x-[-2px] active:translate-y-[2px] active:scale-[0.97]"
@@ -20,6 +43,8 @@
               src="./assets/images/contactmeicons/instaicon.svg"
               alt="Instagram icon"
               class="relative w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] lg:w-[26px] lg:h-[26px]"
+
+              id="instaicon"
             />
           </a>
         </button>
@@ -35,8 +60,9 @@
           >
             <img
               src="./assets/images/contactmeicons/linklednicon.svg"
-              alt="Instagram icon"
+              alt="Linkledn icon"
               class="relative w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] lg:w-[26px] lg:h-[26px]"
+              id="linklednicon"
           /></a>
         </button>
       </div>
@@ -48,8 +74,9 @@
           <a href="https://discord.gg/hZk3y6qj" target="_blank">
             <img
               src="./assets/images/contactmeicons/discordicon.svg"
-              alt="Instagram icon"
+              alt="Discord icon"
               class="relative w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] lg:w-[26px] lg:h-[26px]"
+              id="discordicon"
             />
           </a>
         </button>
@@ -62,14 +89,15 @@
           <a href="https://github.com/sadsalmonnn" target="_blank">
             <img
               src="./assets/images/contactmeicons/githubicon.svg"
-              alt="Instagram icon"
+              alt="Github icon"
               class="relative w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] lg:w-[26px] lg:h-[26px]"
+              id="githubicon"
             />
           </a>
         </button>
       </div>
 
-      <div class="justify-center items-center relative flex">
+      <div class="justify-center items-center relative flex" id="resumebutton">
         <div
           class="absolute inset-0 translate-x-[-5px] translate-y-[5px] z-0 rounded-sm bluethemecolourbg blur-3_8px transition-all duration-150 active:translate-x-[-4px] active:translate-y-[6px]"
         ></div>
@@ -82,26 +110,6 @@
           </button></a
         >
       </div>
-    </div>
-  </div>
-  <div
-    class="relative inline-block max-w-[850px] max-h-[600px] overflow-hidden"
-  >
-    <div class="relative inline-block">
-      <!-- Glow layer -->
-      <img
-        src="./assets/images/contactmeicons/solomon.svg"
-        alt=""
-        class="absolute inset-0 w-full h-full object-contain blur-[8px] opacity-80 z-0 pointer-events-none"
-        style="filter: drop-shadow(0 0 15px #7cf7f5)"
-      />
-
-      <!-- Main SVG -->
-      <img
-        src="./assets/images/contactmeicons/solomon.svg"
-        alt=""
-        class="relative z-10 block w-full h-auto object-contain"
-      />
     </div>
   </div>
 </div>

@@ -16,15 +16,15 @@
       </div>
   </div> -->
 
-    <div class="relative inline-block text-left mx-auto">
-      <h2 class="text-center" id="exptitle">PROJECTS</h2>
-      <div class="flex mt-1 justify-center">
+    <div class="relative w-full text-left">
+      <h2 class="text-left" id="projtitle">PROJECTS</h2>
+      <div class="flex mt-1 justify-start">
         <div
-          id="expblueblock"
+          id="projblueblock"
           class="w-[33px] h-[10px] sm:w-[38px] sm:h-[15px] md:w-[45px] md:h-[20px] lg:w-[55px] lg:h-[25px] bg-[#00FFFF]"
         ></div>
         <div
-          id="expgreyblock"
+          id="projgreyblock"
           class="w-[57px] h-[10px] sm:w-[70px] sm:h-[15px] md:w-[90px] md:h-[20px] lg:w-[110px] lg:h-[25px] bg-[#979797]"
         ></div>
       </div>
@@ -33,53 +33,56 @@
 
   <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8 w-full">
     @for (project of projects; track project) {
-    <div class="flex flex-col w-full gap-2 pb-1 projectcontainer">
-      <div
-        class="relative w-full aspect-[16/9] group rounded-md overflow-hidden"
-      >
+    <div class="flex flex-col w-full gap-2 mb-4 projectcontainer">
+      
+      <a target="_blank" [href]="project.gitlink">
         <div
-          class="absolute inset-0 z-0 rounded-md bg-cyan-400 opacity-50 blur-[6px]"
-        ></div>
-        <div
-          class="absolute inset-[-8px] z-10 rounded-md bg-cyan-400 opacity-30 blur-[24px]"
-        ></div>
-
-        <img
-          class="absolute inset-0 z-20 w-full h-full object-cover rounded-md group-hover:brightness-40"
-          [src]="project.imgpath"
-          [alt]="project.title"
-        />
-
-        <div
-          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white z-30"
+          class="relative w-full aspect-[16/9] group rounded-md overflow-hidden"
         >
-          <div class="max-w-[80%] text-left">
-            <p class="mb-4">{{ project.description }}</p>
-            <div
-              class="flex flex-wrap flex-row gap-4 items-center justify-center text-center"
-            >
-              @for(tag of project.tags; track tag){
-              <p class="border rounded-sm py-0.5 px-4.5 border-[#979797]">
-                {{ tag }}
-              </p>
-              }
+          <div
+            class="absolute inset-0 z-0 rounded-md bg-cyan-400 opacity-50 blur-[6px]"
+          ></div>
+          <div
+            class="absolute inset-[-8px] z-10 rounded-md bg-cyan-400 opacity-30 blur-[24px]"
+          ></div>
+
+            <img
+            class="absolute inset-0 z-20 w-full h-full object-cover rounded-md group-hover:brightness-40"
+            [src]="project.imgpath"
+            [alt]="project.title"
+            />
+
+
+          <div
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white z-30"
+          >
+            <div class="max-w-[80%] text-left">
+              <p class="mb-4">{{ project.description }}</p>
+              <div
+                class="flex flex-wrap flex-row gap-4 items-center justify-center text-center"
+              >
+                @for(tag of project.tags; track tag){
+                <p class="border rounded-sm py-0.5 px-4.5 border-[#979797]">
+                  {{ tag }}
+                </p>
+                }
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
+      </a>
+      
       <div class="flex justify-between items-center">
         <h4>{{ project.title }}</h4>
         <a
           [href]="project.gitlink"
           target="_blank"
           rel="noopener noreferrer"
-          class="transition-all duration-150 active:translate-x-[-2px] active:translate-y-[2px] active:scale-[0.97]"
+          
         >
           <a
             target="_blank"
             [href]="project.gitlink"
-            class="transition-all duration-150 active:translate-x-[-2px] active:translate-y-[2px] active:scale-[0.97]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

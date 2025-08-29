@@ -1,7 +1,7 @@
-<div class="flex justify-center">
-  <div class="w-full max-w-[900px] my-10">
-    <div class="relative inline-block text-left mx-auto">
-      <h2 class="text-center" id="exptitle">EXPERIENCE</h2>
+<div class="flex flex-col justify-center items-center w-full relative my-10">
+
+    <div class="relative w-full text-left">
+      <h2 class="text-left" id="exptitle">EXPERIENCE</h2>
       <div class="flex mt-1 justify-start">
         <div
           id="expblueblock"
@@ -13,17 +13,13 @@
         ></div>
       </div>
     </div>
+  <div class="w-full mt-6 flex max-w-[800px]">
 
     <ul
-      class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mt-8"
+      class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical"
     >
       @for (experience of experiences; track experience; let i = $index) {
-      <li>
-        <!-- @if (i > 0) {
-        <hr class="hrexp" />
-        } @else {
-        <hr class="hidden" />
-        } -->
+      <li class="">
         <div class="timeline-middle">
           <div class="relative">
             <svg
@@ -87,7 +83,7 @@
           <p class="text-[#979797]">
             {{ experience.company }} · {{ experience.location }}
           </p>
-          <p>
+          <p class="">
             {{ experience.description }}
           </p>
         </div>
@@ -97,6 +93,7 @@
           style="
             border-bottom-left-radius: 9999px;
             border-bottom-right-radius: 9999px;
+            
           "
         />
         } @else {

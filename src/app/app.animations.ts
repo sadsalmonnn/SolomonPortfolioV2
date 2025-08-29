@@ -21,19 +21,11 @@ gsap.registerPlugin(ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlug
 
 export function webpageAnimation() {
 
-  animationExperiencePage()
-  animateExpTimeline()
+  animationExperiencePage();
+  animateExpTimeline();
   animateAboutPage();
-  ScrollTrigger.create({
-    trigger: "#projectspage",
-    // markers: true,
-    start: "top bottom-=5%",
-    end: "bottom top",
-    onEnter: animateProjectsPage,
-    once: true,
-    // scrub: true, // TODO: Figure out how to scrub the aboutmepage
-  });
-
+  animateProjectsPage();
+  animateContactPage()
   
   let masterTL = gsap.timeline();
 
@@ -173,7 +165,7 @@ export function webpageAnimation() {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#aboutmepage",
-        markers: true,
+        // markers: true,
         start: "top bottom",
         end: "bottom top",
         once: true
@@ -184,7 +176,7 @@ export function webpageAnimation() {
     tl.from("#aboutmetitle", {
         autoAlpha: 0,
         x: -100,
-        duration: 1,
+        duration: 2,
         ease: "power4.out"
       })
       .from("#aboutmeblueblock", {
@@ -202,16 +194,16 @@ export function webpageAnimation() {
       .from("#aboutmetext", {
         y: -100,
         autoAlpha: 0,
-        duration: 1,
+        duration: 2,
         ease: "power4.out"
-      }, "<")
+      }, "-=1.6")
 
       .from("#aboutmeimg", {
         opacity: 0,
         y: -100,
         duration: 1,
-        ease: "power4.out"
-      }, "<1");
+        ease: "easeInOut"
+      }, "-=1.8");
 
     return tl;
   }
@@ -224,7 +216,7 @@ export function webpageAnimation() {
           trigger: "#exptitle",
           start: "top bottom-=15%", // adjust as needed
           toggleActions: "play none none none", // plays once
-          markers: true
+          // markers: true
       },
       autoAlpha: 0,
       x: -100,
@@ -287,21 +279,98 @@ export function webpageAnimation() {
   }
 
   function animateProjectsPage() {
+    gsap.from("#projtitle", {
+      scrollTrigger: {
+        trigger: "#projtitle",
+        start: "top 80%",
+        toggleActions: "play none none none",
+        // markers: true
+      },
+      autoAlpha: 0,
+      x: -100,
+      duration: 1,
+      ease: "power4.out"
+    });
 
-    let tl = gsap.timeline()
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#projtitle",
+        start: "top 80%",
+        toggleActions: "play none none none",
+        // markers: true
+      }
+    });
+
+    tl.from("#projblueblock", {
+      width: "0px",
+      duration: 1,
+      ease: "power4.out"
+    }).from("#projgreyblock", {
+      width: "0px",
+      duration: 1,
+      ease: "power4.out"
+    }, "-=0.8"); // overlap by 0.8s
+
+const content = document.getElementsByClassName("projectcontainer");
+
+    for (const element of content) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom-=20%",
+          end: "bottom+=20% top",
+          once: true,
+          // markers: true,
+        }
+      });
+
+      tl
+      .from(element, {
+            autoAlpha: 0.2,
+            duration: 1,
+            ease: "power2.out",
+        }, "<");
+    }
+  }
+
+  function animateContactPage() {
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#contactcircleimg",
+        start: "top bottom",
+        end: "bottom+=20% top",
+        toggleActions: "play none none none",
+        markers: true
+      }
+    });
 
     tl
-      // .set(".projectcontainer", {autoAlpha: 0})
-      .to("#projectspage", { autoAlpha: 1, duration: 0.01 })
-      .from("#projectspage", {
-          width: 0,
-          paddingLeft: 0,
-          paddingRight: 0,
-          duration: 1,
-          ease: "power4.out"
-      })
-      //.from() // TODO: do something with title
+    .from("#contactcircleimg", {
+      autoAlpha: 0,
+      duration: 2,
+      ease: "power4.out"
+    })
+    .to("#contacttext", {
+      text: "Let's work together!",
+      duration: 1.5,
+      ease: "none",
+    }, "<")
+    .from("#contactemail", {
+      autoAlpha: 0,
+      duration: 1,
+      y: 50,
+      ease: "power4.out",
+    }, "-=1");
 
-      
+    let iconIds = ["instaicon", "linklednicon", "discordicon", "githubicon", "resumebutton"];
+    iconIds.forEach((id) => {
+      tl.from(`#${id}`, {
+        autoAlpha: 0,
+        duration: 1,
+        y: 50,
+        ease: "power4.out",
+      }, "-=0.8");
+    });
   }
 }
