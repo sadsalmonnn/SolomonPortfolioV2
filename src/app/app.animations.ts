@@ -21,6 +21,9 @@ gsap.registerPlugin(ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlug
 
 export function webpageAnimation() {
 
+  window.addEventListener("load", () => {
+
+    
   animationExperiencePage();
   animateExpTimeline();
   animateAboutPage();
@@ -373,4 +376,6 @@ const content = document.getElementsByClassName("projectcontainer");
       }, "-=0.8");
     });
   }
+  });
+
 }
