@@ -24,9 +24,9 @@ export class App implements AfterViewInit {
 
   ngAfterViewInit() {
 
-    window.addEventListener("resize", () => {
-      location.reload(); // refreshes the page
-    });
+    // window.addEventListener("resize", () => {
+    //   location.reload(); // refreshes the page
+    // });
 
     gsap.to("#preloader", {
       opacity: 0,
