@@ -10,7 +10,6 @@ import { ElementRef, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 
 import { webpageAnimation } from './app.animations';
-import { Loadingscreen } from './loadingscreen/loadingscreen';
 
 @Component({
   selector: 'app-root',
