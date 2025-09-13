@@ -14,4 +14,7 @@ export class Homepage{
       el.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+
+  
 }

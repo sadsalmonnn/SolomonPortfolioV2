@@ -21,6 +21,17 @@ export function webpageAnimation() {
     animateProjectsPage();
     animateContactPage();
 
+    gsap.to(".testing", {
+      scale: 300,
+
+      scrollTrigger: {
+        trigger: ".homecontainer",
+        scrub: 1,
+        pin: true,
+        start: "top top",
+      }
+    })
+
     let masterTL = gsap.timeline();
 
     // Animate loading screen
@@ -65,7 +76,7 @@ export function webpageAnimation() {
           const el = document.getElementById("loadingscreen");
           if (el) el.style.display = "none";
 
-          document.body.classList.remove("overflow-hidden");
+          // document.body.classList.remove("overflow-hidden");
 
           const appwrap = document.getElementById("appwrap");
           if (appwrap) {
