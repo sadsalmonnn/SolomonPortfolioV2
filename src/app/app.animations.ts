@@ -17,7 +17,7 @@ export function webpageAnimation() {
   window.addEventListener("load", () => {
     animationExperiencePage();
     animateExpTimeline();
-    animateAboutPage();
+    // animateAboutPage();
     animateProjectsPage();
     animateContactPage();
 
@@ -49,20 +49,26 @@ export function webpageAnimation() {
       tl
         .set("#homedivider", { autoAlpha: 0, scaleX: 0 })
         .to("#homepage", { autoAlpha: 1, duration: 1 })
-        .from("#viewworkbuttonwhole", { autoAlpha: 0, y: -50, duration: 1, ease: "power4.out" })
-        .to("#navbar", { autoAlpha: 1 }, "-=0.8")
+        // .from("#viewworkbuttonwhole", { autoAlpha: 0, y: -50, duration: 1, ease: "power4.out" })
         .to(
-          "#homeTitle",
-          { duration: 2, text: { value: "SOFTWARE<br>DEVELOPER", delimiter: "" }, delay: "-=2" },
+          "#homeTitle1",
+          { duration: 1, text: { value: "SOFTWARE", delimiter: "" }, delay: "-=2" },
           "-=0.4"
         )
-        .to("#homeTitle", { duration: 2, text: { value: "SOLOMON<br>ADOR DIONISIO", delimiter: "" }, delay: "-=2" })
+        .to(
+          "#homeTitle2",
+          { duration: 1, text: { value: "DEVELOPER", delimiter: "" }, delay: "-=2" },
+          "-=0.4"
+        )
+        .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" }, delay: "-=2" })
+        .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" }, delay: "-=2" })
         .from(
           "#homedivider",
           { autoAlpha: 0, scaleX: 0, height: 0, transformOrigin: "center" },
           "-=1"
         )
-        .to("navbar", { autoAlpha: 1 });
+        .to("navbar", { autoAlpha: 1 })
+        .to("#navbar", { autoAlpha: 1 }, "-=0.8");
 
       return tl;
     }

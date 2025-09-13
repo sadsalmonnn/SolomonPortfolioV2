@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { Aboutmepage } from '../aboutmepage/aboutmepage';
 
 @Component({
   selector: 'app-homepage',
-  imports: [],
+  imports: [Aboutmepage],
   templateUrl: './homepage.html',
   styleUrl: './homepage.css'
 })

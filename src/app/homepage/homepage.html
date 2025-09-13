@@ -41,15 +41,44 @@
 <div
   class="h-screen homecontainer justify-center items-center text-center min-h-dvh"
 >
-
-  <img class="w-full h-full fixed -z-1 inset-0 object-cover" src="./assets/images/aboutmeimgs/solomonwater.png" alt="">
-  
-  <div class="mask h-screen w-screen bg-[#fff] flex justify-center items-center mix-blend-screen">
-    <div class="relative flex flex-col justify-center items-center h-full">
-      <h1 class="testing m-0 leading-none">SOFTWARE DEVELOPER</h1>
-
-      <span class="mt-2 block text-left">SOLOMON ADOR-DIONISIO</span>
+  <app-aboutmepage
+    class="scroll-mt-10 w-full h-full fixed -z-1 inset-0 object-cover"
+    id="aboutmepagecontent"
+  ></app-aboutmepage>
+  <div
+    class="mask h-screen w-screen bg-[#fff] flex justify-center flex-col items-center mix-blend-screen"
+  >
+    <div class="relative flex flex-col items-center">
+      <h2 class="testing leading-none m-0 z-10" id="homeTitle1"></h2>
+      <h2 class="testing leading-none m-0 -mt-1 z-10" id="homeTitle2"></h2>
     </div>
-    
+
+    <div>
+      <div
+        id="homesubtitle"
+        class="flex flex-col justify-center items-center text-center mb-5 max-w-[180px] sm:max-w-[300px]"
+      >
+        <p>
+          making a <span class="text-[#00FFFF] boldtext">difference</span> with
+          <span class="text-[#00FFFF] boldtext">intuitive</span>,
+          <span class="text-[#00FFFF] boldtext">scalable</span> software
+        </p>
+      </div>
+      <div class="relative inline-block" id="viewworkbuttonwhole">
+        <div
+          id="viewworkbuttonbg"
+          class="absolute inset-0 translate-x-[-5px] translate-y-[5px] rounded-sm bg-[#00FFFF] blur-3_8px transition-all duration-150 active:translate-x-[-4px] active:translate-y-[6px]"
+        ></div>
+
+        <button
+          id="viewworkbutton"
+          (click)="goToPart('projectspage')"
+          type="submit"
+          class="relative border rounded-sm py-0.5 px-4.5 border-[#979797] transition-all duration-150 hover:cursor-pointer active:translate-x-[-2px] active:translate-y-[2px] active:scale-[0.97]"
+        >
+          <h4>view work</h4>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
