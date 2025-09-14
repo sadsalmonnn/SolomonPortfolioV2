@@ -44,7 +44,6 @@ export function webpageAnimation() {
         pin: true,
         start: "top top",
         end: "bottom top+=65%",
-        markers: true,
         // ease: "none",
       }
     })
