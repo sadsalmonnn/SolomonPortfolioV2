@@ -58,33 +58,16 @@ export function webpageAnimation() {
 
     function animateLandingPage() {
       let tl = gsap.timeline({
-        defaults: {
-          ease: "power1.out",
-        },
+        defaults: { ease: "power1.out" },
       });
-      tl
-        // .set("#homedivider", { autoAlpha: 0, scaleX: 0 })
-        .to("#homepage", { autoAlpha: 1, duration: 1 })
-        // .from("#viewworkbuttonwhole", { autoAlpha: 0, y: -50, duration: 1, ease: "power4.out" })
-        .to(
-          "#homeTitle1",
-          { duration: 1, text: { value: "SOFTWARE", delimiter: "" }, delay: "-=2" },
-          "-=0.4"
-        )
-        .to(
-          "#homeTitle2",
-          { duration: 1, text: { value: "DEVELOPER", delimiter: "" }, delay: "-=2" },
-          "-=0.4"
-        )
-        .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" }, delay: "-=2" })
-        .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" }, delay: "-=2" })
-        // .from(
-        //   "#homedivider",
-        //   { autoAlpha: 0, scaleX: 0, height: 0, transformOrigin: "center" },
-        //   "-=1"
-        // )
+
+      // Main intro animation
+      tl.to("#homepage", { autoAlpha: 1, duration: 1 })
+        .to("#homeTitle1", { duration: 1, text: { value: "SOFTWARE", delimiter: "" } }, "-=0.4")
+        .to("#homeTitle2", { duration: 1, text: { value: "DEVELOPER", delimiter: "" } }, "-=0.4")
+        .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" } }, "-=0.2")
+        .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" } }, "-=0.2")
         .to("#navbar", { autoAlpha: 1, duration: 1 }, "-=0.5");
-        // .to("navbar", { autoAlpha: 1 });
 
       return tl;
     }
