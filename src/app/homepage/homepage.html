@@ -38,7 +38,8 @@
     </div>
   </div>
 </div> -->
-<div
+
+<!-- <div
   class="h-screen homecontainer justify-center items-center text-center min-h-dvh"
 >
   <app-aboutmepage
@@ -81,4 +82,54 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="relative h-screen w-screen">
+  <!-- Fixed Background -->
+  <app-aboutmepage
+    class="fixed inset-0 w-full h-full object-cover -z-10"
+    id="aboutmepagecontent"
+  ></app-aboutmepage>
+
+  <!-- Mask section with blend (fixed for zoom effect) -->
+  <div class="fixed inset-0 flex flex-col justify-center items-center mix-blend-screen bg-[#f2f2f2] z-20">
+    <div class="relative flex flex-col items-center">
+      <h2 class="testing leading-none m-0" id="homeTitle1"></h2>
+      <h2 class="testing leading-none m-0 -mt-1" id="homeTitle2"></h2>
+    </div>
+  </div>
+
+  <!-- Normal section without blend (fixed and layered above) -->
+  <div class="fixed inset-0 w-full flex flex-col justify-center items-center text-center homesubititlecontent z-20">
+
+    <!-- Invisible h2 to preserve spacing so subtitle is below the title -->
+    <h2 class="leading-none m-0 invisible" id="homeTitle1">SOLOMON JAMES</h2>
+    <h2 class="leading-none m-0 -mt-1 mb-35 invisible" id="homeTitle2">ADOR-DIONISIO</h2>
+
+    <!-- Subtitle Text -->
+    <div id="homesubtitle" class="mb-5 max-w-[180px] sm:max-w-[300px]">
+      <p>
+        making a <span class="text-[#00FFFF] boldtext">difference</span> with
+        <span class="text-[#00FFFF] boldtext">intuitive</span>,
+        <span class="text-[#00FFFF] boldtext">scalable</span> software
+      </p>
+    </div>
+
+    <!-- Button -->
+    <div class="relative inline-block" id="viewworkbuttonwhole">
+      <div
+        id="viewworkbuttonbg"
+        class="absolute inset-0 translate-x-[-5px] translate-y-[5px] rounded-sm bg-[#00FFFF] blur-3_8px"
+      ></div>
+      <button
+        id="viewworkbutton"
+        (click)="goToPart('projectspage')"
+        type="submit"
+        class="relative border rounded-sm py-0.5 px-4.5 border-[#979797]"
+      >
+        <h4>view work</h4>
+      </button>
+    </div>
+  </div>
 </div>
+

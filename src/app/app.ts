@@ -27,14 +27,14 @@ export class App implements AfterViewInit {
     //   location.reload(); // refreshes the page
     // });
 
-    gsap.to("#preloader", {
-      opacity: 0,
-      duration: 0.5,
-      onComplete: () => {
-        const loader = document.getElementById("preloader");
-        if (loader) loader.remove();
-      }
-    });
+    // gsap.to("#preloader", {
+    //   opacity: 0,
+    //   duration: 0.5,
+    //   onComplete: () => {
+    //     const loader = document.getElementById("preloader");
+    //     if (loader) loader.remove();
+    //   }
+    // });
 
     webpageAnimation();
   }

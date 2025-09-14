@@ -29,6 +29,23 @@ export function webpageAnimation() {
         scrub: 1,
         pin: true,
         start: "top top",
+        // end: "bottom top+=65%",
+        // ease: "none",
+      }
+    })
+
+
+    gsap.to(".homesubititlecontent", {
+      opacity: 0,
+
+      scrollTrigger: {
+        trigger: ".homepage",
+        scrub: 1,
+        pin: true,
+        start: "top top",
+        end: "bottom top+=65%",
+        markers: true,
+        // ease: "none",
       }
     })
 
@@ -47,7 +64,7 @@ export function webpageAnimation() {
         },
       });
       tl
-        .set("#homedivider", { autoAlpha: 0, scaleX: 0 })
+        // .set("#homedivider", { autoAlpha: 0, scaleX: 0 })
         .to("#homepage", { autoAlpha: 1, duration: 1 })
         // .from("#viewworkbuttonwhole", { autoAlpha: 0, y: -50, duration: 1, ease: "power4.out" })
         .to(
@@ -62,13 +79,13 @@ export function webpageAnimation() {
         )
         .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" }, delay: "-=2" })
         .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" }, delay: "-=2" })
-        .from(
-          "#homedivider",
-          { autoAlpha: 0, scaleX: 0, height: 0, transformOrigin: "center" },
-          "-=1"
-        )
-        .to("navbar", { autoAlpha: 1 })
-        .to("#navbar", { autoAlpha: 1 }, "-=0.8");
+        // .from(
+        //   "#homedivider",
+        //   { autoAlpha: 0, scaleX: 0, height: 0, transformOrigin: "center" },
+        //   "-=1"
+        // )
+        .to("#navbar", { autoAlpha: 1, duration: 1 }, "-=0.5");
+        // .to("navbar", { autoAlpha: 1 });
 
       return tl;
     }
@@ -82,7 +99,7 @@ export function webpageAnimation() {
           const el = document.getElementById("loadingscreen");
           if (el) el.style.display = "none";
 
-          // document.body.classList.remove("overflow-hidden");
+          document.body.classList.remove("overflow-hidden");
 
           const appwrap = document.getElementById("appwrap");
           if (appwrap) {
@@ -127,28 +144,28 @@ export function webpageAnimation() {
         ease: "power4.out",
       });
 
-      gsap.from("#expblueblock", {
-        scrollTrigger: {
-          trigger: "#exptitle",
-          start: "top bottom-=15%",
-          toggleActions: "play none none none",
-        },
-        width: 0,
-        duration: 1,
-        ease: "power4.out",
-      });
+      // gsap.from("#expblueblock", {
+      //   scrollTrigger: {
+      //     trigger: "#exptitle",
+      //     start: "top bottom-=15%",
+      //     toggleActions: "play none none none",
+      //   },
+      //   width: 0,
+      //   duration: 1,
+      //   ease: "power4.out",
+      // });
 
-      gsap.from("#expgreyblock", {
-        scrollTrigger: {
-          trigger: "#exptitle",
-          start: "top bottom-=15%",
-          toggleActions: "play none none none",
-        },
-        delay: "-=0.8",
-        width: 0,
-        duration: 1,
-        ease: "power4.out",
-      });
+      // gsap.from("#expgreyblock", {
+      //   scrollTrigger: {
+      //     trigger: "#exptitle",
+      //     start: "top bottom-=15%",
+      //     toggleActions: "play none none none",
+      //   },
+      //   delay: "-=0.8",
+      //   width: 0,
+      //   duration: 1,
+      //   ease: "power4.out",
+      // });
     }
 
     function animateExpTimeline() {
@@ -183,8 +200,8 @@ export function webpageAnimation() {
         scrollTrigger: { trigger: "#projtitle", start: "top 80%", toggleActions: "play none none none" },
       });
 
-      tl.from("#projblueblock", { width: "0px", duration: 1, ease: "power4.out" })
-        .from("#projgreyblock", { width: "0px", duration: 1, ease: "power4.out" }, "-=0.8");
+      // tl.from("#projblueblock", { width: "0px", duration: 1, ease: "power4.out" })
+      //   .from("#projgreyblock", { width: "0px", duration: 1, ease: "power4.out" }, "-=0.8");
 
       const content = document.getElementsByClassName("projectcontainer");
 
