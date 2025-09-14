@@ -41,17 +41,17 @@ export class App implements AfterViewInit {
 
   protected readonly title = signal("Solomon's Portfolio");
 
-  @ViewChild('paintBlob') paintBlob!: ElementRef;
+  // @ViewChild('paintBlob') paintBlob!: ElementRef;
 
-  onMouseMove(event: MouseEvent) {
-    const x = event.clientX - 80;
-    const y = event.clientY - 80;
+  // onMouseMove(event: MouseEvent) {
+  //   const x = event.clientX - 80;
+  //   const y = event.clientY - 80;
 
-    gsap.to(this.paintBlob.nativeElement, {
-      x: x,
-      y: y,
-      duration: 0.4,
-      ease: 'power3.out'
-    });
-  }
+  //   gsap.to(this.paintBlob.nativeElement, {
+  //     x: x,
+  //     y: y,
+  //     duration: 0.4,
+  //     ease: 'power3.out'
+  //   });
+  // }
 }
