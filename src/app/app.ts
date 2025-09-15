@@ -1,4 +1,4 @@
-import { Component, signal, AfterViewInit } from '@angular/core';
+import { Component, signal, AfterViewInit, OnDestroy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Aboutmepage } from './aboutmepage/aboutmepage';
 import { Contactmepage } from './contactmepage/contactmepage';
@@ -19,7 +19,7 @@ import { webpageAnimation } from './app.animations';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements AfterViewInit {
+export class App implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
 
@@ -37,6 +37,12 @@ export class App implements AfterViewInit {
     // });
 
     webpageAnimation();
+  }
+
+  ngOnDestroy() {
+    // Kill ScrollTriggers when leaving the page
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    gsap.killTweensOf("*");
   }
 
   protected readonly title = signal("Solomon's Portfolio");

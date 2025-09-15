@@ -1,3 +1,259 @@
+// import { gsap } from "gsap";
+// import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ScrollSmoother } from "gsap/ScrollSmoother";
+// import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+// import { TextPlugin } from "gsap/TextPlugin";
+
+// gsap.registerPlugin(
+//   ScrambleTextPlugin,
+//   ScrollTrigger,
+//   ScrollSmoother,
+//   ScrollToPlugin,
+//   TextPlugin
+// );
+
+// export function webpageAnimation() {
+//   window.addEventListener("load", () => {
+//     animationExperiencePage();
+//     animateExpTimeline();
+//     // animateAboutPage();
+//     animateProjectsPage();
+//     animateContactPage();
+
+//     gsap.to(".testing", {
+//       scale: 300,
+
+//       scrollTrigger: {
+//         trigger: ".homecontainer",
+//         scrub: 1,
+//         pin: true,
+//         start: "top top",
+//         // ease: "none",
+//       }
+//     })
+
+
+//     gsap.to(".homesubititlecontent", {
+//       opacity: 0,
+
+//       scrollTrigger: {
+//         trigger: ".homepage",
+//         scrub: 1,
+//         pin: true,
+//         start: "top top",
+//         end: "bottom top+=65%",
+//         // ease: "none",
+//       }
+//     })
+
+
+//     let masterTL = gsap.timeline();
+
+//     // Animate loading screen
+//     masterTL.add(removeanimateLoadingPage());
+
+//     // Then show homepage after loading is complete
+//     masterTL.add(animateLandingPage());
+
+//     function animateLandingPage() {
+//       let tl = gsap.timeline({
+//         defaults: { ease: "power1.out" },
+//       });
+
+//       // Main intro animation
+//       tl.to("#homepage", { autoAlpha: 1, duration: 1 })
+//         .to("#homeTitle1", { duration: 1, text: { value: "SOFTWARE", delimiter: "" } }, "-=0.4")
+//         .to("#homeTitle2", { duration: 1, text: { value: "DEVELOPER", delimiter: "" } }, "-=0.4")
+//         .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" } }, "-=0.2")
+//         .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" } }, "-=0.2")
+//         .to("#navbar", { autoAlpha: 1, duration: 1 }, "-=0.5");
+
+//       return tl;
+//     }
+//     // function animateLandingPage() {
+//     //   // Timeline for the landing animation
+//     //   let tl = gsap.timeline({
+//     //     defaults: { ease: "power1.out" },
+//     //   });
+
+//     //   // Main intro animation
+//     //   tl.to("#homepage", { autoAlpha: 1, duration: 1 })
+//     //     .to("#homeTitle1", { duration: 1, text: { value: "SOFTWARE", delimiter: "" } }, "-=0.4")
+//     //     .to("#homeTitle2", { duration: 1, text: { value: "DEVELOPER", delimiter: "" } }, "-=0.4")
+//     //     .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" } }, "-=0.2")
+//     //     .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" } }, "-=0.2")
+//     //     .to("#navbar", { autoAlpha: 1, duration: 1 }, "-=0.5");
+
+//     //   // ScrollTrigger to finish animation immediately after a scroll threshold
+//     //   ScrollTrigger.create({
+//     //     trigger: "#homepage",       // section to watch
+//     //     start: "top top",           // when the top of page hits top of viewport
+//     //     end: "bottom top+=200",     // adjust distance as needed
+//     //     markers: true,
+//     //     onUpdate: (self) => {
+//     //       if (self.progress > 0.3) {   // change 0.3 to how far you want user to scroll before completing
+//     //         tl.progress(1);            // finish the timeline immediately
+//     //       }
+//     //     }
+//     //   });
+
+//     //   return tl;
+//     // }
+
+//     function removeanimateLoadingPage() {
+//       const tl = gsap.timeline();
+
+//       tl.to("#loadingscreen", { autoAlpha: 1, duration: 1 })
+//         .to("#loadingscreen", { autoAlpha: 0, duration: 1.5, delay: 1, ease: "power2.out" })
+//         .add(() => {
+//           const el = document.getElementById("loadingscreen");
+//           if (el) el.style.display = "none";
+
+//           document.body.classList.remove("overflow-hidden");
+
+//           const appwrap = document.getElementById("appwrap");
+//           if (appwrap) {
+//             appwrap.classList.remove("overflow-y-hidden");
+//             appwrap.classList.remove("max-h-dvh");
+//           }
+//         })
+//         .to("app-root", { autoAlpha: 1, duration: 1, ease: "power2.out" }, "+=0.1");
+
+//       return tl;
+//     }
+
+//     function animateAboutPage() {
+//       let tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: "#aboutmepage",
+//           start: "top bottom",
+//           end: "bottom top",
+//           once: true,
+//         },
+//       });
+
+//       tl.from("#aboutmetitle", { autoAlpha: 0, x: -100, duration: 2, ease: "power4.out" })
+//         .from("#aboutmeblueblock", { width: 0, duration: 1, ease: "power4.out" }, "<")
+//         .from("#aboutmegreyblock", { delay: "-=0.8", width: 0, duration: 1, ease: "power4.out" }, "<")
+//         .from("#aboutmetext", { y: -100, autoAlpha: 0, duration: 2, ease: "power4.out" }, "-=1.6")
+//         .from("#aboutmeimg", { opacity: 0, y: -100, duration: 1, ease: "easeInOut" }, "-=1.8");
+
+//       return tl;
+//     }
+
+//     function animationExperiencePage() {
+//       gsap.from("#exptitle", {
+//         scrollTrigger: {
+//           trigger: "#exptitle",
+//           start: "top bottom-=15%",
+//           toggleActions: "play none none none",
+//         },
+//         autoAlpha: 0,
+//         x: -100,
+//         duration: 1,
+//         ease: "power4.out",
+//       });
+
+//       // gsap.from("#expblueblock", {
+//       //   scrollTrigger: {
+//       //     trigger: "#exptitle",
+//       //     start: "top bottom-=15%",
+//       //     toggleActions: "play none none none",
+//       //   },
+//       //   width: 0,
+//       //   duration: 1,
+//       //   ease: "power4.out",
+//       // });
+
+//       // gsap.from("#expgreyblock", {
+//       //   scrollTrigger: {
+//       //     trigger: "#exptitle",
+//       //     start: "top bottom-=15%",
+//       //     toggleActions: "play none none none",
+//       //   },
+//       //   delay: "-=0.8",
+//       //   width: 0,
+//       //   duration: 1,
+//       //   ease: "power4.out",
+//       // });
+//     }
+
+//     function animateExpTimeline() {
+//       const hrs = document.querySelectorAll(".hrexp");
+//       const content = document.getElementsByClassName("expcontentsection");
+
+//       hrs.forEach((el, index) => {
+//         const tl = gsap.timeline({
+//           scrollTrigger: {
+//             trigger: el,
+//             start: "top bottom-=15%",
+//             end: "bottom+=20% top",
+//             once: true,
+//           },
+//         });
+
+//         tl.from(el, { scaleY: 0, transformOrigin: "top center", duration: 1, ease: "power2.out" })
+//           .from(content[index], { autoAlpha: 0.2, duration: 1, ease: "power2.out" }, "<");
+//       });
+//     }
+
+
+//     function animateProjectsPage() {
+
+//       gsap.from("#projtitle", {
+//         scrollTrigger: { trigger: "#projtitle", start: "top bottom", toggleActions: "play none none none", },
+//         autoAlpha: 0,
+//         x: -100,
+//         duration: 1,
+//         ease: "power4.out",
+
+//       });
+
+//       // let tl = gsap.timeline({
+//       //   scrollTrigger: { trigger: "#projtitle", start: "top 80%", toggleActions: "play none none none" },
+//       // });
+
+//       // tl.from("#projblueblock", { width: "0px", duration: 1, ease: "power4.out" })
+//       //   .from("#projgreyblock", { width: "0px", duration: 1, ease: "power4.out" }, "-=0.8");
+
+//       const content = document.getElementsByClassName("projectcontainer");
+
+//       for (const element of content) {
+//         const tl = gsap.timeline({
+//           scrollTrigger: {
+//             trigger: element,
+//             start: "top bottom-=20%",
+//             end: "bottom+=20% top",
+//             once: true,
+//           },
+//         });
+
+//         tl.from(element, { autoAlpha: 0.2, duration: 1, ease: "power2.out" }, "<");
+//       }
+//     }
+
+//     function animateContactPage() {
+//       let tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: "#contactcircleimg",
+//           start: "top bottom",
+//           end: "bottom+=20% top",
+//           toggleActions: "play none none none",
+//         },
+//       });
+
+//       tl.from("#contactcircleimg", { autoAlpha: 0, duration: 2, ease: "power4.out" })
+//         .to("#contacttext", { text: "Let's work together!", duration: 1.5, ease: "none" }, "<")
+//         .from("#contactemail", { autoAlpha: 0, duration: 1, y: 50, ease: "power4.out" }, "-=1");
+
+//       let iconIds = ["instaicon", "linklednicon", "discordicon", "githubicon", "resumebutton"];
+//       iconIds.forEach((id) => {
+//         tl.from(`#${id}`, { autoAlpha: 0, duration: 1, y: 50, ease: "power4.out" }, "-=0.8");
+//       });
+//     }
+//   });
+// }
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,210 +271,219 @@ gsap.registerPlugin(
 
 export function webpageAnimation() {
   window.addEventListener("load", () => {
-    animationExperiencePage();
-    animateExpTimeline();
-    // animateAboutPage();
-    animateProjectsPage();
-    animateContactPage();
+    // Initialize all animations
+    initAnimations();
+  });
 
+  function initAnimations() {
+    // Set up a master timeline for sequencing
+    const masterTL = gsap.timeline();
+    
+    // Loading animation first
+    masterTL.add(loadingAnimation());
+    
+    // Then landing page animation
+    masterTL.add(landingAnimation());
+    
+    // Setup scroll triggers for other sections
+    setupScrollAnimations();
+  }
+
+  function loadingAnimation() {
+    const tl = gsap.timeline();
+    
+    return tl
+      .to("#loadingscreen", { autoAlpha: 1, duration: 1 })
+      .to("#loadingscreen", { 
+        autoAlpha: 0, 
+        duration: 1.5, 
+        delay: 1, 
+        ease: "power2.out",
+        onComplete: () => {
+          const el = document.getElementById("loadingscreen");
+          if (el) el.style.display = "none";
+          
+          document.body.classList.remove("overflow-hidden");
+          
+          const appwrap = document.getElementById("appwrap");
+          if (appwrap) {
+            appwrap.classList.remove("overflow-y-hidden");
+            appwrap.classList.remove("max-h-dvh");
+          }
+        }
+      })
+      .to("app-root", { autoAlpha: 1, duration: 1, ease: "power2.out" }, "+=0.1");
+  }
+
+  function landingAnimation() {
+    const tl = gsap.timeline({
+      defaults: { ease: "power1.out" },
+    });
+
+    // Main intro animation
+    return tl
+      .to("#homepage", { autoAlpha: 1, duration: 1 })
+      .to("#homeTitle1", { duration: 1, text: { value: "SOFTWARE", delimiter: "" } }, "-=0.4")
+      .to("#homeTitle2", { duration: 1, text: { value: "DEVELOPER", delimiter: "" } }, "-=0.4")
+      .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" } }, "-=0.2")
+      .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" } }, "-=0.2")
+      .to("#navbar", { autoAlpha: 1, duration: 1 }, "-=0.5");
+  }
+
+  function setupScrollAnimations() {
+    // Homepage animations
+    setupHomeAnimations();
+    
+    // Experience section
+    setupExperienceAnimations();
+    
+    // Projects section
+    setupProjectsAnimations();
+    
+    // Contact section
+    setupContactAnimations();
+    
+    // Refresh ScrollTrigger after all setups
+    ScrollTrigger.refresh();
+  }
+
+  function setupHomeAnimations() {
+    // Testing element animation
     gsap.to(".testing", {
       scale: 300,
-
       scrollTrigger: {
         trigger: ".homecontainer",
         scrub: 1,
         pin: true,
         start: "top top",
-        // end: "bottom top+=65%",
-        // ease: "none",
       }
-    })
+    });
 
-
+    // Home subtitle animation
     gsap.to(".homesubititlecontent", {
       opacity: 0,
-
       scrollTrigger: {
         trigger: ".homepage",
         scrub: 1,
         pin: true,
         start: "top top",
         end: "bottom top+=65%",
-        // ease: "none",
       }
-    })
+    });
+  }
 
-    let masterTL = gsap.timeline();
+  function setupExperienceAnimations() {
+    // Experience title animation
+    gsap.from("#exptitle", {
+      scrollTrigger: {
+        trigger: "#exptitle",
+        start: "top bottom-=15%",
+        toggleActions: "play none none none",
+      },
+      autoAlpha: 0,
+      x: -100,
+      duration: 1,
+      ease: "power4.out",
+    });
 
-    // Animate loading screen
-    masterTL.add(removeanimateLoadingPage());
+    // Experience timeline animations
+    const hrs = document.querySelectorAll(".hrexp");
+    const content = document.getElementsByClassName("expcontentsection");
 
-    // Then show homepage after loading is complete
-    masterTL.add(animateLandingPage());
-
-    function animateLandingPage() {
-      let tl = gsap.timeline({
-        defaults: { ease: "power1.out" },
-      });
-
-      // Main intro animation
-      tl.to("#homepage", { autoAlpha: 1, duration: 1 })
-        .to("#homeTitle1", { duration: 1, text: { value: "SOFTWARE", delimiter: "" } }, "-=0.4")
-        .to("#homeTitle2", { duration: 1, text: { value: "DEVELOPER", delimiter: "" } }, "-=0.4")
-        .to("#homeTitle1", { duration: 1, text: { value: "SOLOMON JAMES", delimiter: "" } }, "-=0.2")
-        .to("#homeTitle2", { duration: 1, text: { value: "ADOR-DIONISIO", delimiter: "" } }, "-=0.2")
-        .to("#navbar", { autoAlpha: 1, duration: 1 }, "-=0.5");
-
-      return tl;
-    }
-
-    function removeanimateLoadingPage() {
-      const tl = gsap.timeline();
-
-      tl.to("#loadingscreen", { autoAlpha: 1, duration: 1 })
-        .to("#loadingscreen", { autoAlpha: 0, duration: 1.5, delay: 1, ease: "power2.out" })
-        .add(() => {
-          const el = document.getElementById("loadingscreen");
-          if (el) el.style.display = "none";
-
-          document.body.classList.remove("overflow-hidden");
-
-          const appwrap = document.getElementById("appwrap");
-          if (appwrap) {
-            appwrap.classList.remove("overflow-y-hidden");
-            appwrap.classList.remove("max-h-dvh");
-          }
-        })
-        .to("app-root", { autoAlpha: 1, duration: 1, ease: "power2.out" }, "+=0.1");
-
-      return tl;
-    }
-
-    function animateAboutPage() {
-      let tl = gsap.timeline({
+    hrs.forEach((el, index) => {
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: "#aboutmepage",
-          start: "top bottom",
-          end: "bottom top",
+          trigger: el,
+          start: "top bottom-=15%",
+          end: "bottom+=20% top",
           once: true,
         },
       });
 
-      tl.from("#aboutmetitle", { autoAlpha: 0, x: -100, duration: 2, ease: "power4.out" })
-        .from("#aboutmeblueblock", { width: 0, duration: 1, ease: "power4.out" }, "<")
-        .from("#aboutmegreyblock", { delay: "-=0.8", width: 0, duration: 1, ease: "power4.out" }, "<")
-        .from("#aboutmetext", { y: -100, autoAlpha: 0, duration: 2, ease: "power4.out" }, "-=1.6")
-        .from("#aboutmeimg", { opacity: 0, y: -100, duration: 1, ease: "easeInOut" }, "-=1.8");
+      tl.from(el, { 
+        scaleY: 0, 
+        transformOrigin: "top center", 
+        duration: 1, 
+        ease: "power2.out" 
+      }).from(content[index], { 
+        autoAlpha: 0.2, 
+        duration: 1, 
+        ease: "power2.out" 
+      }, "<");
+    });
+  }
 
-      return tl;
-    }
+  function setupProjectsAnimations() {
+    // Projects title animation
+    gsap.from("#projtitle", {
+      scrollTrigger: { 
+        trigger: "#projtitle", 
+        start: "top bottom", 
+        toggleActions: "play none none none", 
+      },
+      autoAlpha: 0,
+      x: -100,
+      duration: 1,
+      ease: "power4.out",
+    });
 
-    function animationExperiencePage() {
-      gsap.from("#exptitle", {
+    // Project containers animation
+    const content = document.getElementsByClassName("projectcontainer");
+
+    for (const element of content) {
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: "#exptitle",
-          start: "top bottom-=15%",
-          toggleActions: "play none none none",
-        },
-        autoAlpha: 0,
-        x: -100,
-        duration: 1,
-        ease: "power4.out",
-      });
-
-      // gsap.from("#expblueblock", {
-      //   scrollTrigger: {
-      //     trigger: "#exptitle",
-      //     start: "top bottom-=15%",
-      //     toggleActions: "play none none none",
-      //   },
-      //   width: 0,
-      //   duration: 1,
-      //   ease: "power4.out",
-      // });
-
-      // gsap.from("#expgreyblock", {
-      //   scrollTrigger: {
-      //     trigger: "#exptitle",
-      //     start: "top bottom-=15%",
-      //     toggleActions: "play none none none",
-      //   },
-      //   delay: "-=0.8",
-      //   width: 0,
-      //   duration: 1,
-      //   ease: "power4.out",
-      // });
-    }
-
-    function animateExpTimeline() {
-      const hrs = document.querySelectorAll(".hrexp");
-      const content = document.getElementsByClassName("expcontentsection");
-
-      hrs.forEach((el, index) => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: el,
-            start: "top bottom-=15%",
-            end: "bottom+=20% top",
-            once: true,
-          },
-        });
-
-        tl.from(el, { scaleY: 0, transformOrigin: "top center", duration: 1, ease: "power2.out" })
-          .from(content[index], { autoAlpha: 0.2, duration: 1, ease: "power2.out" }, "<");
-      });
-    }
-
-    function animateProjectsPage() {
-      gsap.from("#projtitle", {
-        scrollTrigger: { trigger: "#projtitle", start: "top 80%", toggleActions: "play none none none" },
-        autoAlpha: 0,
-        x: -100,
-        duration: 1,
-        ease: "power4.out",
-      });
-
-      let tl = gsap.timeline({
-        scrollTrigger: { trigger: "#projtitle", start: "top 80%", toggleActions: "play none none none" },
-      });
-
-      // tl.from("#projblueblock", { width: "0px", duration: 1, ease: "power4.out" })
-      //   .from("#projgreyblock", { width: "0px", duration: 1, ease: "power4.out" }, "-=0.8");
-
-      const content = document.getElementsByClassName("projectcontainer");
-
-      for (const element of content) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: element,
-            start: "top bottom-=20%",
-            end: "bottom+=20% top",
-            once: true,
-          },
-        });
-
-        tl.from(element, { autoAlpha: 0.2, duration: 1, ease: "power2.out" }, "<");
-      }
-    }
-
-    function animateContactPage() {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#contactcircleimg",
-          start: "top bottom",
+          trigger: element,
+          start: "top bottom-=20%",
           end: "bottom+=20% top",
-          toggleActions: "play none none none",
+          once: true,
         },
       });
 
-      tl.from("#contactcircleimg", { autoAlpha: 0, duration: 2, ease: "power4.out" })
-        .to("#contacttext", { text: "Let's work together!", duration: 1.5, ease: "none" }, "<")
-        .from("#contactemail", { autoAlpha: 0, duration: 1, y: 50, ease: "power4.out" }, "-=1");
-
-      let iconIds = ["instaicon", "linklednicon", "discordicon", "githubicon", "resumebutton"];
-      iconIds.forEach((id) => {
-        tl.from(`#${id}`, { autoAlpha: 0, duration: 1, y: 50, ease: "power4.out" }, "-=0.8");
+      tl.from(element, { 
+        autoAlpha: 0.2, 
+        duration: 1, 
+        ease: "power2.out" 
       });
     }
-  });
+  }
+
+  function setupContactAnimations() {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#contactcircleimg",
+        start: "top bottom",
+        end: "bottom+=20% top",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.from("#contactcircleimg", { 
+      autoAlpha: 0, 
+      duration: 2, 
+      ease: "power4.out" 
+    }).to("#contacttext", { 
+      text: "Let's work together!", 
+      duration: 1.5, 
+      ease: "none" 
+    }, "<").from("#contactemail", { 
+      autoAlpha: 0, 
+      duration: 1, 
+      y: 50, 
+      ease: "power4.out" 
+    }, "-=1");
+
+    // Social icons animation
+    const iconIds = ["instaicon", "linklednicon", "discordicon", "githubicon", "resumebutton"];
+    iconIds.forEach((id) => {
+      if (document.getElementById(id)) {
+        tl.from(`#${id}`, { 
+          autoAlpha: 0, 
+          duration: 1, 
+          y: 50, 
+          ease: "power4.out" 
+        }, "-=0.8");
+      }
+    });
+  }
 }

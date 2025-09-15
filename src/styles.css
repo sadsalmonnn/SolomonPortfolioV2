@@ -78,7 +78,7 @@ html {
   @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
 }
 
-#preloader {
+/* #preloader {
   position: fixed;
   inset: 0;
   background-color: black;
@@ -97,4 +97,4 @@ html {
 app-root {
   opacity: 0;
   transition: opacity 1s ease;
-}
+} */
